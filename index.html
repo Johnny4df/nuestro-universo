@@ -175,7 +175,9 @@
         }
 
 
-        /* SOBRE */
+        /* ========================================
+           SOBRE
+        ======================================== */
 
         .sobre {
 
@@ -231,7 +233,9 @@
         }
 
 
-        /* PAPEL */
+        /* ========================================
+           PAPEL
+        ======================================== */
 
         .papel {
 
@@ -279,7 +283,9 @@
         }
 
 
-        /* SELLO */
+        /* ========================================
+           SELLO
+        ======================================== */
 
         .sello {
 
@@ -314,7 +320,9 @@
         }
 
 
-        /* BOTON */
+        /* ========================================
+           BOTON
+        ======================================== */
 
         #cerrarMensaje {
 
@@ -362,6 +370,7 @@
 
             }
 
+
             #titulo h1 {
 
                 font-size: 20px;
@@ -370,11 +379,13 @@
 
             }
 
+
             #titulo p {
 
                 font-size: 10px;
 
             }
+
 
             .sobre {
 
@@ -384,11 +395,13 @@
 
             }
 
+
             .papel h2 {
 
                 font-size: 25px;
 
             }
+
 
             .papel p {
 
@@ -689,7 +702,7 @@ texturaLoader.load(
 
 
 /* ========================================
-   ATMOSFERA
+   ATMÓSFERA
 ======================================== */
 
 
@@ -796,18 +809,21 @@ for (
 
 
     posicionesFondo[i * 3] =
+
         radio *
         Math.sin(phi) *
         Math.cos(theta);
 
 
     posicionesFondo[i * 3 + 1] =
+
         radio *
         Math.sin(phi) *
         Math.sin(theta);
 
 
     posicionesFondo[i * 3 + 2] =
+
         radio *
         Math.cos(phi);
 
@@ -920,6 +936,7 @@ for (
 
         Math.cos(angulo) *
         radio +
+
         desviacion;
 
 
@@ -933,6 +950,7 @@ for (
 
         Math.sin(angulo) *
         radio +
+
         desviacion;
 
 }
@@ -985,17 +1003,98 @@ galaxia.add(
 
 
 /* ========================================
-   FOTOS
+   TEXTURA DE HALO
 ======================================== */
 
 
-/*
-    Aquí tenemos 20 fotografías.
+function crearHalo() {
 
-    Se reutilizan foto1.jpg hasta foto6.jpg.
+    const canvas =
+        document.createElement(
+            "canvas"
+        );
 
-    No necesitas tener 20 archivos diferentes.
-*/
+
+    canvas.width = 128;
+
+    canvas.height = 128;
+
+
+    const contexto =
+        canvas.getContext("2d");
+
+
+    const gradiente =
+        contexto.createRadialGradient(
+
+            64,
+            64,
+            0,
+
+            64,
+            64,
+            64
+
+        );
+
+
+    gradiente.addColorStop(
+        0,
+        "rgba(255,255,255,1)"
+    );
+
+
+    gradiente.addColorStop(
+        .08,
+        "rgba(255,255,255,1)"
+    );
+
+
+    gradiente.addColorStop(
+        .25,
+        "rgba(180,190,255,.8)"
+    );
+
+
+    gradiente.addColorStop(
+        .55,
+        "rgba(100,110,255,.3)"
+    );
+
+
+    gradiente.addColorStop(
+        1,
+        "rgba(0,0,0,0)"
+    );
+
+
+    contexto.fillStyle =
+        gradiente;
+
+
+    contexto.fillRect(
+        0,
+        0,
+        128,
+        128
+    );
+
+
+    return new THREE.CanvasTexture(
+        canvas
+    );
+
+}
+
+
+const texturaHalo =
+    crearHalo();
+
+
+
+/* ========================================
+   FOTOS ORBITALES
+======================================== */
 
 
 const nombresFotos = [
@@ -1010,47 +1109,188 @@ const nombresFotos = [
 ];
 
 
-const posicionesFotos = [
+/*
+    Cada fotografía tiene
+    una órbita diferente.
 
-    [-330, 120, 80],
+    radio:
+    distancia respecto al centro.
 
-    [-220, 40, 250],
+    altura:
+    posición vertical.
 
-    [-80, 170, -300],
+    velocidad:
+    velocidad de movimiento.
 
-    [120, 210, 240],
+    inclinacion:
+    inclinación de su trayectoria.
 
-    [280, 130, -170],
+    escala:
+    tamaño de la fotografía.
+*/
 
-    [350, 10, 90],
 
-    [300, -120, 260],
+const datosFotos = [
 
-    [160, -180, -300],
+    {
+        radio: 300,
+        altura: 120,
+        velocidad: .0018,
+        inclinacion: .15,
+        escala: 1.00
+    },
 
-    [-50, -210, 310],
+    {
+        radio: 420,
+        altura: -80,
+        velocidad: .0011,
+        inclinacion: -.25,
+        escala: .90
+    },
 
-    [-230, -170, -240],
+    {
+        radio: 560,
+        altura: 180,
+        velocidad: .0008,
+        inclinacion: .35,
+        escala: .82
+    },
 
-    [-350, -70, -40],
+    {
+        radio: 700,
+        altura: -160,
+        velocidad: .0006,
+        inclinacion: -.40,
+        escala: .75
+    },
 
-    [-310, 230, -180],
+    {
+        radio: 350,
+        altura: -200,
+        velocidad: .0015,
+        inclinacion: .50,
+        escala: .95
+    },
 
-    [-130, 280, 230],
+    {
+        radio: 480,
+        altura: 230,
+        velocidad: .0010,
+        inclinacion: -.15,
+        escala: .85
+    },
 
-    [80, 290, -160],
+    {
+        radio: 620,
+        altura: 40,
+        velocidad: .0007,
+        inclinacion: .30,
+        escala: .80
+    },
 
-    [240, 250, 100],
+    {
+        radio: 760,
+        altura: -100,
+        velocidad: .0005,
+        inclinacion: -.30,
+        escala: .70
+    },
 
-    [400, 80, -250],
+    {
+        radio: 280,
+        altura: 260,
+        velocidad: .0020,
+        inclinacion: .20,
+        escala: 1.05
+    },
 
-    [380, -180, -80],
+    {
+        radio: 530,
+        altura: -250,
+        velocidad: .0009,
+        inclinacion: -.45,
+        escala: .82
+    },
 
-    [-390, -140, 180],
+    {
+        radio: 680,
+        altura: 220,
+        velocidad: .0006,
+        inclinacion: .25,
+        escala: .72
+    },
 
-    [-180, -280, 100],
+    {
+        radio: 820,
+        altura: -220,
+        velocidad: .0004,
+        inclinacion: -.20,
+        escala: .65
+    },
 
-    [40, -300, -180]
+    {
+        radio: 390,
+        altura: 300,
+        velocidad: .0013,
+        inclinacion: .40,
+        escala: .92
+    },
+
+    {
+        radio: 580,
+        altura: -300,
+        velocidad: .0008,
+        inclinacion: -.35,
+        escala: .78
+    },
+
+    {
+        radio: 730,
+        altura: 280,
+        velocidad: .0005,
+        inclinacion: .30,
+        escala: .68
+    },
+
+    {
+        radio: 450,
+        altura: 100,
+        velocidad: .0011,
+        inclinacion: -.50,
+        escala: .88
+    },
+
+    {
+        radio: 650,
+        altura: -40,
+        velocidad: .0007,
+        inclinacion: .15,
+        escala: .76
+    },
+
+    {
+        radio: 850,
+        altura: 150,
+        velocidad: .0004,
+        inclinacion: -.25,
+        escala: .62
+    },
+
+    {
+        radio: 320,
+        altura: -120,
+        velocidad: .0017,
+        inclinacion: .45,
+        escala: .98
+    },
+
+    {
+        radio: 500,
+        altura: 260,
+        velocidad: .0009,
+        inclinacion: -.30,
+        escala: .84
+    }
 
 ];
 
@@ -1067,9 +1307,15 @@ escena.add(
 const fotosObjetos = [];
 
 
-posicionesFotos.forEach(
 
-    (posicion, indice) => {
+/* ========================================
+   CREAR FOTOS
+======================================== */
+
+
+datosFotos.forEach(
+
+    (datos, indice) => {
 
 
         const archivo =
@@ -1085,10 +1331,54 @@ posicionesFotos.forEach(
             );
 
 
+        const grupo =
+            new THREE.Group();
+
+
+        /*
+            Posición angular inicial.
+        */
+
+        grupo.userData.angulo =
+            Math.random() *
+            Math.PI * 2;
+
+
+        grupo.userData.radio =
+            datos.radio;
+
+
+        grupo.userData.altura =
+            datos.altura;
+
+
+        grupo.userData.velocidad =
+            datos.velocidad;
+
+
+        grupo.userData.inclinacion =
+            datos.inclinacion;
+
+
+        grupo.userData.indice =
+            indice;
+
+
+        grupo.scale.setScalar(
+            datos.escala
+        );
+
+
+
+        /* ========================================
+           FOTO
+        ======================================== */
+
+
         const geometria =
             new THREE.PlaneGeometry(
-                72,
-                72
+                78,
+                78
             );
 
 
@@ -1097,74 +1387,94 @@ posicionesFotos.forEach(
 
                 map: textura,
 
-                side: THREE.DoubleSide,
+                side:
+                    THREE.DoubleSide,
 
-                transparent: true,
+                transparent:
+                    true,
 
-                opacity: .95
+                opacity:
+                    .96
 
             });
 
 
         const foto =
             new THREE.Mesh(
+
                 geometria,
+
                 material
+
             );
 
 
-        foto.position.set(
-
-            posicion[0],
-            posicion[1],
-            posicion[2]
-
-        );
-
-
-        foto.userData.angulo =
-            Math.random() * Math.PI * 2;
-
-
-        foto.userData.distancia =
-            0.4 +
-            Math.random() * .5;
-
-
-        grupoFotos.add(
+        grupo.add(
             foto
         );
 
 
-        fotosObjetos.push(
-            foto
-        );
+
+        /* ========================================
+           HALO
+        ======================================== */
 
 
-        /* MARCO */
+        const halo =
+            new THREE.Sprite(
 
-        const marco =
-            new THREE.LineSegments(
+                new THREE.SpriteMaterial({
 
-                new THREE.EdgesGeometry(
-                    geometria
-                ),
+                    map:
+                        texturaHalo,
 
-                new THREE.LineBasicMaterial({
+                    color:
+                        0x8994ff,
 
-                    color: 0xffffff,
+                    transparent:
+                        true,
 
-                    transparent: true,
+                    opacity:
+                        .12,
 
-                    opacity: .35
+                    blending:
+                        THREE.AdditiveBlending,
+
+                    depthWrite:
+                        false
 
                 })
 
             );
 
 
-        foto.add(
-            marco
+        halo.scale.set(
+            100,
+            100,
+            1
+        );
+
+
+        grupo.add(
+            halo
+        );
+
+
+        grupo.userData.foto =
+            foto;
+
+
+        grupo.userData.halo =
+            halo;
+
+
+        grupoFotos.add(
+            grupo
+        );
+
+
+        fotosObjetos.push(
+            grupo
         );
 
     }
@@ -1263,94 +1573,11 @@ const posicionesEstrellas = [
 const estrellasEspeciales = [];
 
 
-/* TEXTURA DE HALO */
 
-function crearHalo() {
+/* ========================================
+   CREAR ESTRELLAS
+======================================== */
 
-    const canvas =
-        document.createElement(
-            "canvas"
-        );
-
-
-    canvas.width = 128;
-
-    canvas.height = 128;
-
-
-    const contexto =
-        canvas.getContext("2d");
-
-
-    const gradiente =
-        contexto.createRadialGradient(
-
-            64,
-            64,
-            0,
-
-            64,
-            64,
-            64
-
-        );
-
-
-    gradiente.addColorStop(
-        0,
-        "rgba(255,255,255,1)"
-    );
-
-
-    gradiente.addColorStop(
-        .08,
-        "rgba(255,255,255,1)"
-    );
-
-
-    gradiente.addColorStop(
-        .25,
-        "rgba(180,190,255,.8)"
-    );
-
-
-    gradiente.addColorStop(
-        .55,
-        "rgba(100,110,255,.3)"
-    );
-
-
-    gradiente.addColorStop(
-        1,
-        "rgba(0,0,0,0)"
-    );
-
-
-    contexto.fillStyle =
-        gradiente;
-
-
-    contexto.fillRect(
-        0,
-        0,
-        128,
-        128
-    );
-
-
-    return new THREE.CanvasTexture(
-        canvas
-    );
-
-}
-
-
-const texturaHalo =
-    crearHalo();
-
-
-
-/* CREAR ESTRELLAS */
 
 posicionesEstrellas.forEach(
 
@@ -1378,25 +1605,34 @@ posicionesEstrellas.forEach(
             indice;
 
 
-        /* HALO */
+
+        /* ========================================
+           HALO
+        ======================================== */
+
 
         const halo =
             new THREE.Sprite(
 
                 new THREE.SpriteMaterial({
 
-                    map: texturaHalo,
+                    map:
+                        texturaHalo,
 
-                    color: 0x9ea8ff,
+                    color:
+                        0x9ea8ff,
 
-                    transparent: true,
+                    transparent:
+                        true,
 
-                    opacity: .95,
+                    opacity:
+                        .95,
 
                     blending:
                         THREE.AdditiveBlending,
 
-                    depthWrite: false
+                    depthWrite:
+                        false
 
                 })
 
@@ -1415,7 +1651,11 @@ posicionesEstrellas.forEach(
         );
 
 
-        /* NÚCLEO */
+
+        /* ========================================
+           NÚCLEO
+        ======================================== */
+
 
         const nucleo =
             new THREE.Mesh(
@@ -1428,7 +1668,8 @@ posicionesEstrellas.forEach(
 
                 new THREE.MeshBasicMaterial({
 
-                    color: 0xffffff
+                    color:
+                        0xffffff
 
                 })
 
@@ -1440,29 +1681,52 @@ posicionesEstrellas.forEach(
         );
 
 
-        /* CRUZ DE LUZ */
+
+        /* ========================================
+           CRUZ DE LUZ
+        ======================================== */
+
 
         const materialCruz =
             new THREE.LineBasicMaterial({
 
-                color: 0xffffff,
+                color:
+                    0xffffff,
 
-                transparent: true,
+                transparent:
+                    true,
 
-                opacity: .8
+                opacity:
+                    .8
 
             });
 
 
         const puntosCruz = [
 
-            new THREE.Vector3(-16, 0, 0),
+            new THREE.Vector3(
+                -16,
+                0,
+                0
+            ),
 
-            new THREE.Vector3(16, 0, 0),
+            new THREE.Vector3(
+                16,
+                0,
+                0
+            ),
 
-            new THREE.Vector3(0, -16, 0),
+            new THREE.Vector3(
+                0,
+                -16,
+                0
+            ),
 
-            new THREE.Vector3(0, 16, 0)
+            new THREE.Vector3(
+                0,
+                16,
+                0
+            )
 
         ];
 
@@ -1489,16 +1753,23 @@ posicionesEstrellas.forEach(
         );
 
 
-        /* DATOS */
+
+        /* ========================================
+           DATOS
+        ======================================== */
+
 
         grupo.userData.halo =
             halo;
 
+
         grupo.userData.nucleo =
             nucleo;
 
+
         grupo.userData.cruz =
             cruz;
+
 
         grupo.userData.base =
             1;
@@ -1535,13 +1806,17 @@ const mouse =
 function obtenerMouse(event) {
 
     mouse.x =
+
         (event.clientX /
-        window.innerWidth) * 2 - 1;
+        window.innerWidth) *
+        2 - 1;
 
 
     mouse.y =
+
         -(event.clientY /
-        window.innerHeight) * 2 + 1;
+        window.innerHeight) *
+        2 + 1;
 
 }
 
@@ -1575,7 +1850,8 @@ function abrirMensaje(texto) {
     );
 
 
-    controles.enabled = false;
+    controles.enabled =
+        false;
 
 }
 
@@ -1624,9 +1900,15 @@ renderer.domElement.addEventListener(
                 objetos[0].object;
 
 
+            /*
+                Buscamos el grupo padre
+                que contiene el mensaje.
+            */
+
             while (
 
                 estrella.parent &&
+
                 !estrella.userData.texto
 
             ) {
@@ -1699,6 +1981,7 @@ window.addEventListener(
 
     function(event) {
 
+
         if (
             event.key === "Escape"
         ) {
@@ -1743,7 +2026,10 @@ function animar() {
 
 
 
-    /* PLANETA */
+    /* ========================================
+       PLANETA
+    ======================================== */
+
 
     if (planeta) {
 
@@ -1753,7 +2039,11 @@ function animar() {
     }
 
 
-    /* ATMÓSFERA */
+
+    /* ========================================
+       ATMÓSFERA
+    ======================================== */
+
 
     const escalaAtmosfera =
 
@@ -1771,14 +2061,21 @@ function animar() {
     );
 
 
-    /* ANILLO */
+
+    /* ========================================
+       ANILLO
+    ======================================== */
+
 
     anillo.rotation.z =
         tiempo * .12;
 
 
 
-    /* GALAXIA */
+    /* ========================================
+       GALAXIA
+    ======================================== */
+
 
     galaxia.rotation.y =
         tiempo * .018;
@@ -1793,43 +2090,159 @@ function animar() {
 
 
 
-    /* FOTOS */
+    /* ========================================
+       FOTOS ORBITALES
+    ======================================== */
+
 
     fotosObjetos.forEach(
 
         (foto, indice) => {
 
 
-            const velocidad =
-                .0008 +
-                (indice % 4) *
-                .00015;
-
+            /*
+                Cada foto tiene
+                su propia velocidad.
+            */
 
             foto.userData.angulo +=
-                velocidad;
+                foto.userData.velocidad;
 
 
-            /* movimiento suave */
+            const angulo =
+                foto.userData.angulo;
+
+
+            const radio =
+                foto.userData.radio;
+
+
+            /*
+                Movimiento circular
+                en el plano X/Z.
+            */
+
+            const x =
+
+                Math.cos(angulo) *
+                radio;
+
+
+            const z =
+
+                Math.sin(angulo) *
+                radio;
+
+
+            /*
+                Movimiento vertical.
+
+                Esto evita que todas las fotos
+                estén en un mismo plano.
+            */
+
+            const y =
+
+                foto.userData.altura +
+
+                Math.sin(
+                    angulo
+                ) *
+
+                radio *
+
+                .12 *
+
+                Math.sin(
+                    foto.userData.inclinacion
+                );
+
+
+            /*
+                Nueva posición.
+            */
+
+            foto.position.set(
+
+                x,
+                y,
+                z
+
+            );
+
+
+            /*
+                Rotación suave.
+            */
 
             foto.rotation.z =
 
                 Math.sin(
-                    tiempo * .4 +
+
+                    tiempo * .35 +
                     indice
+
                 ) *
 
-                .08;
+                .06;
 
 
             /*
-                Cada foto mira hacia
-                la cámara.
+                Las fotos siempre miran
+                hacia la cámara.
             */
 
             foto.lookAt(
                 camara.position
             );
+
+
+
+            /* ========================================
+               HALO DE LA FOTO
+            ======================================== */
+
+
+            const pulso =
+
+                1 +
+
+                Math.sin(
+
+                    tiempo * 1.2 +
+                    indice
+
+                ) *
+
+                .06;
+
+
+            foto.userData.halo
+                .scale.set(
+
+                    100 * pulso,
+
+                    100 * pulso,
+
+                    1
+
+                );
+
+
+            foto.userData.halo
+                .material
+                .opacity =
+
+                .10 +
+
+                Math.sin(
+
+                    tiempo * 1.2 +
+                    indice
+
+                ) *
+
+                .025;
 
         }
 
@@ -1837,7 +2250,10 @@ function animar() {
 
 
 
-    /* ESTRELLAS ESPECIALES */
+    /* ========================================
+       ESTRELLAS ESPECIALES
+    ======================================== */
+
 
     estrellasEspeciales.forEach(
 
@@ -1849,8 +2265,10 @@ function animar() {
                 1 +
 
                 Math.sin(
+
                     tiempo * 2.2 +
                     indice
+
                 ) *
 
                 .18;
@@ -1883,6 +2301,7 @@ function animar() {
             estrella.rotation.z =
 
                 tiempo *
+
                 (.2 + indice * .01);
 
         }
@@ -1891,12 +2310,20 @@ function animar() {
 
 
 
+    /* ========================================
+       ACTUALIZAR CONTROLES
+    ======================================== */
+
+
     controles.update();
 
 
     renderer.render(
+
         escena,
+
         camara
+
     );
 
 }
