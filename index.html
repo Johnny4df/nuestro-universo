@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Nuestro Universo</title>
+
 
     <style>
 
@@ -14,23 +19,39 @@
             box-sizing: border-box;
         }
 
+
         body {
+
             overflow: hidden;
+
             background: #000;
-            font-family: Arial, sans-serif;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
         }
+
 
         #contenedor {
+
             width: 100vw;
             height: 100vh;
+
         }
 
-        /* TÍTULO */
+
+        /* ========================================
+           TITULO
+        ======================================== */
 
         #titulo {
+
             position: fixed;
 
             top: 35px;
+
             left: 0;
 
             width: 100%;
@@ -44,227 +65,595 @@
             pointer-events: none;
 
             text-shadow:
-                0 0 10px #ffffff,
-                0 0 25px #6969ff;
+
+                0 0 10px white,
+                0 0 25px #7777ff,
+                0 0 50px #5555ff;
+
         }
+
 
         #titulo h1 {
+
+            font-family: Arial, sans-serif;
+
             font-size: 30px;
+
             font-weight: 300;
+
             letter-spacing: 8px;
+
         }
+
 
         #titulo p {
+
             margin-top: 10px;
+
+            font-family: Arial, sans-serif;
+
             font-size: 13px;
+
             opacity: .7;
+
             letter-spacing: 3px;
+
         }
 
-        /* MENSAJE */
 
-        #mensaje {
-            position: fixed;
-
-            left: 50%;
-            bottom: 40px;
-
-            transform: translateX(-50%);
-
-            padding: 15px 25px;
-
-            max-width: 450px;
-
-            color: white;
-
-            background: rgba(5, 5, 20, .75);
-
-            border: 1px solid rgba(255,255,255,.3);
-
-            border-radius: 15px;
-
-            backdrop-filter: blur(10px);
-
-            text-align: center;
-
-            opacity: 0;
-
-            transition: .4s;
-
-            pointer-events: none;
-
-            z-index: 20;
-        }
-
-        #mensaje.visible {
-            opacity: 1;
-        }
-
-        /* AYUDA */
+        /* ========================================
+           AYUDA
+        ======================================== */
 
         #ayuda {
+
             position: fixed;
 
             right: 20px;
+
             bottom: 20px;
 
             color: white;
 
+            font-family: Arial, sans-serif;
+
             font-size: 11px;
 
-            opacity: .4;
+            opacity: .45;
 
             z-index: 10;
+
+        }
+
+
+        /* ========================================
+           MENSAJE / SOBRE
+        ======================================== */
+
+        #mensajePantalla {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(45, 35, 100, .35),
+                    rgba(0, 0, 10, .96)
+                );
+
+            backdrop-filter: blur(15px);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 100;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+
+                opacity .5s ease,
+                visibility .5s ease;
+
+        }
+
+
+        #mensajePantalla.visible {
+
+            opacity: 1;
+
+            visibility: visible;
+
+        }
+
+
+        /* SOBRE */
+
+        .sobre {
+
+            position: relative;
+
+            width: min(650px, 88vw);
+
+            min-height: 400px;
+
+            padding: 70px 55px 55px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #f8f2e8,
+                    #e9dcc8
+                );
+
+            color: #292338;
+
+            border-radius: 8px;
+
+            box-shadow:
+
+                0 0 30px rgba(255,255,255,.15),
+                0 0 100px rgba(100,80,255,.25);
+
+            transform:
+
+                scale(.4)
+                rotateX(35deg);
+
+            opacity: 0;
+
+            transition:
+
+                transform .8s cubic-bezier(.2,.8,.2,1),
+                opacity .6s ease;
+
+        }
+
+
+        #mensajePantalla.visible .sobre {
+
+            transform:
+
+                scale(1)
+                rotateX(0deg);
+
+            opacity: 1;
+
+        }
+
+
+        /* PAPEL */
+
+        .papel {
+
+            text-align: center;
+
+        }
+
+
+        .papel .pequeno {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            color: #766b82;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .papel h2 {
+
+            font-size: 32px;
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+
+            color: #403353;
+
+        }
+
+
+        .papel p {
+
+            font-size: 23px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* SELLO */
+
+        .sello {
+
+            position: absolute;
+
+            top: 25px;
+
+            right: 30px;
+
+            width: 55px;
+
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #6c58a8;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+
+            box-shadow:
+
+                0 5px 15px rgba(0,0,0,.2);
+
+        }
+
+
+        /* BOTON */
+
+        #cerrarMensaje {
+
+            position: absolute;
+
+            top: 20px;
+
+            left: 25px;
+
+            width: 35px;
+
+            height: 35px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(50,40,70,.1);
+
+            color: #4a4058;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+        }
+
+
+        #cerrarMensaje:hover {
+
+            background: rgba(50,40,70,.2);
+
+        }
+
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+
+        @media (max-width: 600px) {
+
+            #titulo {
+
+                top: 22px;
+
+            }
+
+            #titulo h1 {
+
+                font-size: 20px;
+
+                letter-spacing: 5px;
+
+            }
+
+            #titulo p {
+
+                font-size: 10px;
+
+            }
+
+            .sobre {
+
+                padding: 65px 28px 40px;
+
+                min-height: 350px;
+
+            }
+
+            .papel h2 {
+
+                font-size: 25px;
+
+            }
+
+            .papel p {
+
+                font-size: 19px;
+
+            }
+
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-    <div id="contenedor"></div>
+
+<div id="contenedor"></div>
 
 
-    <div id="titulo">
+<div id="titulo">
 
-        <h1>NUESTRO UNIVERSO</h1>
+    <h1>NUESTRO UNIVERSO</h1>
 
-        <p>Entre millones de estrellas, siempre te elegiría a ti</p>
+    <p>
+        Entre millones de estrellas,
+        siempre te encontraría a ti
+    </p>
+
+</div>
+
+
+<div id="ayuda">
+
+    Arrastra para explorar ·
+    Acerca o aleja ·
+    Toca las estrellas ✦
+
+</div>
+
+
+<!-- ========================================
+     SOBRE
+======================================== -->
+
+<div id="mensajePantalla">
+
+    <div class="sobre">
+
+        <button id="cerrarMensaje">
+            ×
+        </button>
+
+        <div class="sello">
+            ♥
+        </div>
+
+        <div class="papel">
+
+            <div class="pequeno">
+                Un mensaje para ti
+            </div>
+
+            <h2>
+                Desde mi universo
+            </h2>
+
+            <p id="textoMensaje">
+            </p>
+
+        </div>
 
     </div>
 
-
-    <div id="mensaje"></div>
-
-
-    <div id="ayuda">
-        Arrastra para girar · Rueda para acercarte
-    </div>
+</div>
 
 
-    <!-- THREE.JS -->
 
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
-        }
+<!-- ========================================
+     THREE.JS
+======================================== -->
+
+<script type="importmap">
+
+{
+    "imports": {
+
+        "three":
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+
+        "three/addons/":
+        "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+
     }
-    </script>
+}
+
+</script>
 
 
-    <script type="module">
 
-        import * as THREE from "three";
-
-        import { OrbitControls }
-        from "three/addons/controls/OrbitControls.js";
+<script type="module">
 
 
-        // ==========================================
-        // ESCENA
-        // ==========================================
+import * as THREE from "three";
 
-        const escena = new THREE.Scene();
-
-        escena.background = new THREE.Color(0x000005);
-
-        escena.fog = new THREE.FogExp2(
-            0x000005,
-            0.0007
-        );
+import {
+    OrbitControls
+}
+from
+"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/controls/OrbitControls.js";
 
 
-        // ==========================================
-        // CÁMARA
-        // ==========================================
 
-        const camara = new THREE.PerspectiveCamera(
-            60,
-            window.innerWidth / window.innerHeight,
-            0.1,
-            5000
-        );
-
-        camara.position.set(
-            0,
-            180,
-            650
-        );
+/* ========================================
+   ESCENA
+======================================== */
 
 
-        // ==========================================
-        // RENDERER WEBGL
-        // ==========================================
-
-        const renderer = new THREE.WebGLRenderer({
-            antialias: true
-        });
-
-        renderer.setPixelRatio(
-            Math.min(window.devicePixelRatio, 2)
-        );
-
-        renderer.setSize(
-            window.innerWidth,
-            window.innerHeight
-        );
-
-        document
-            .getElementById("contenedor")
-            .appendChild(renderer.domElement);
+const escena =
+    new THREE.Scene();
 
 
-        // ==========================================
-        // CONTROLES 360°
-        // ==========================================
-
-        const controles =
-            new OrbitControls(
-                camara,
-                renderer.domElement
-            );
-
-        controles.enableDamping = true;
-
-        controles.dampingFactor = .04;
-
-        controles.minDistance = 180;
-
-        controles.maxDistance = 1200;
-
-        controles.enablePan = false;
-
-        controles.autoRotate = true;
-
-        controles.autoRotateSpeed = .25;
+escena.background =
+    new THREE.Color(0x000005);
 
 
-        // ==========================================
-        // LUCES
-        // ==========================================
-
-        const luz = new THREE.PointLight(
-            0xffffff,
-            5,
-            1000
-        );
-
-        escena.add(luz);
+escena.fog =
+    new THREE.FogExp2(
+        0x000005,
+        0.0007
+    );
 
 
-        // ==========================================
-        // PLANETA CENTRAL
-        // ==========================================
 
-        const texturaPlaneta =
-            new THREE.TextureLoader().load(
-                "fotos/planeta.jpg"
-            );
+/* ========================================
+   CÁMARA
+======================================== */
 
 
-        const geometriaPlaneta =
+const camara =
+    new THREE.PerspectiveCamera(
+
+        60,
+
+        window.innerWidth /
+        window.innerHeight,
+
+        .1,
+
+        5000
+
+    );
+
+
+camara.position.set(
+    0,
+    170,
+    650
+);
+
+
+
+/* ========================================
+   WEBGL
+======================================== */
+
+
+const renderer =
+    new THREE.WebGLRenderer({
+
+        antialias: true,
+
+        alpha: false
+
+    });
+
+
+renderer.setPixelRatio(
+
+    Math.min(
+        window.devicePixelRatio,
+        2
+    )
+
+);
+
+
+renderer.setSize(
+
+    window.innerWidth,
+    window.innerHeight
+
+);
+
+
+document
+    .getElementById("contenedor")
+    .appendChild(renderer.domElement);
+
+
+
+/* ========================================
+   CONTROLES 360
+======================================== */
+
+
+const controles =
+    new OrbitControls(
+        camara,
+        renderer.domElement
+    );
+
+
+controles.enableDamping = true;
+
+controles.dampingFactor = .035;
+
+controles.enablePan = false;
+
+controles.minDistance = 180;
+
+controles.maxDistance = 1200;
+
+controles.autoRotate = true;
+
+controles.autoRotateSpeed = .18;
+
+
+
+/* ========================================
+   LUZ CENTRAL
+======================================== */
+
+
+const luz =
+    new THREE.PointLight(
+        0xffffff,
+        7,
+        900
+    );
+
+
+escena.add(luz);
+
+
+
+/* ========================================
+   PLANETA
+======================================== */
+
+
+const texturaLoader =
+    new THREE.TextureLoader();
+
+
+let planeta;
+
+
+texturaLoader.load(
+
+    "fotos/planeta.jpg",
+
+    function(textura) {
+
+        const geometria =
             new THREE.SphereGeometry(
                 70,
                 64,
@@ -272,168 +661,791 @@
             );
 
 
-        const materialPlaneta =
+        const material =
             new THREE.MeshStandardMaterial({
 
-                map: texturaPlaneta,
+                map: textura,
 
-                roughness: .8,
+                roughness: .75,
 
                 metalness: .1
 
             });
 
 
-        const planeta =
+        planeta =
             new THREE.Mesh(
-                geometriaPlaneta,
-                materialPlaneta
+                geometria,
+                material
             );
 
 
         escena.add(planeta);
 
+    }
 
-        // ==========================================
-        // ATMÓSFERA
-        // ==========================================
+);
 
-        const atmosfera =
+
+
+/* ========================================
+   ATMOSFERA
+======================================== */
+
+
+const atmosfera =
+    new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+            75,
+            64,
+            64
+        ),
+
+        new THREE.MeshBasicMaterial({
+
+            color: 0x6875ff,
+
+            transparent: true,
+
+            opacity: .13,
+
+            side: THREE.BackSide
+
+        })
+
+    );
+
+
+escena.add(atmosfera);
+
+
+
+/* ========================================
+   ANILLOS
+======================================== */
+
+
+const anillo =
+    new THREE.Mesh(
+
+        new THREE.RingGeometry(
+            100,
+            128,
+            160
+        ),
+
+        new THREE.MeshBasicMaterial({
+
+            color: 0xb5adff,
+
+            transparent: true,
+
+            opacity: .5,
+
+            side: THREE.DoubleSide
+
+        })
+
+    );
+
+
+anillo.rotation.x =
+    Math.PI / 2.4;
+
+
+escena.add(anillo);
+
+
+
+/* ========================================
+   ESTRELLAS DEL FONDO
+======================================== */
+
+
+const cantidadFondo =
+    8000;
+
+
+const posicionesFondo =
+    new Float32Array(
+        cantidadFondo * 3
+    );
+
+
+for (
+    let i = 0;
+    i < cantidadFondo;
+    i++
+) {
+
+    const radio =
+        900 +
+        Math.random() * 1800;
+
+
+    const theta =
+        Math.random() *
+        Math.PI * 2;
+
+
+    const phi =
+        Math.acos(
+            2 * Math.random() - 1
+        );
+
+
+    posicionesFondo[i * 3] =
+        radio *
+        Math.sin(phi) *
+        Math.cos(theta);
+
+
+    posicionesFondo[i * 3 + 1] =
+        radio *
+        Math.sin(phi) *
+        Math.sin(theta);
+
+
+    posicionesFondo[i * 3 + 2] =
+        radio *
+        Math.cos(phi);
+
+}
+
+
+const fondoGeometry =
+    new THREE.BufferGeometry();
+
+
+fondoGeometry.setAttribute(
+
+    "position",
+
+    new THREE.BufferAttribute(
+        posicionesFondo,
+        3
+    )
+
+);
+
+
+const fondoMaterial =
+    new THREE.PointsMaterial({
+
+        color: 0xffffff,
+
+        size: 1.8,
+
+        transparent: true,
+
+        opacity: .75
+
+    });
+
+
+const fondo =
+    new THREE.Points(
+
+        fondoGeometry,
+
+        fondoMaterial
+
+    );
+
+
+escena.add(fondo);
+
+
+
+/* ========================================
+   GALAXIA ESPIRAL
+======================================== */
+
+
+const galaxia =
+    new THREE.Group();
+
+
+escena.add(galaxia);
+
+
+const cantidadGalaxia =
+    4500;
+
+
+const posicionesGalaxia =
+    new Float32Array(
+        cantidadGalaxia * 3
+    );
+
+
+for (
+    let i = 0;
+    i < cantidadGalaxia;
+    i++
+) {
+
+    const radio =
+        Math.pow(
+            Math.random(),
+            .55
+        ) * 560;
+
+
+    const brazos = 5;
+
+
+    const brazo =
+        Math.floor(
+            Math.random() *
+            brazos
+        );
+
+
+    const angulo =
+
+        (brazo / brazos) *
+        Math.PI * 2 +
+
+        radio * .018;
+
+
+    const desviacion =
+        (Math.random() - .5) *
+        75;
+
+
+    posicionesGalaxia[i * 3] =
+
+        Math.cos(angulo) *
+        radio +
+        desviacion;
+
+
+    posicionesGalaxia[i * 3 + 1] =
+
+        (Math.random() - .5) *
+        45;
+
+
+    posicionesGalaxia[i * 3 + 2] =
+
+        Math.sin(angulo) *
+        radio +
+        desviacion;
+
+}
+
+
+const galaxiaGeometry =
+    new THREE.BufferGeometry();
+
+
+galaxiaGeometry.setAttribute(
+
+    "position",
+
+    new THREE.BufferAttribute(
+        posicionesGalaxia,
+        3
+    )
+
+);
+
+
+const galaxiaMaterial =
+    new THREE.PointsMaterial({
+
+        color: 0xaaaaff,
+
+        size: 2.4,
+
+        transparent: true,
+
+        opacity: .7
+
+    });
+
+
+const particulasGalaxia =
+    new THREE.Points(
+
+        galaxiaGeometry,
+
+        galaxiaMaterial
+
+    );
+
+
+galaxia.add(
+    particulasGalaxia
+);
+
+
+
+/* ========================================
+   FOTOS
+======================================== */
+
+
+/*
+    Aquí tenemos 20 fotografías.
+
+    Se reutilizan foto1.jpg hasta foto6.jpg.
+
+    No necesitas tener 20 archivos diferentes.
+*/
+
+
+const nombresFotos = [
+
+    "foto1.jpg",
+    "foto2.jpg",
+    "foto3.jpg",
+    "foto4.jpg",
+    "foto5.jpg",
+    "foto6.jpg"
+
+];
+
+
+const posicionesFotos = [
+
+    [-330, 120, 80],
+
+    [-220, 40, 250],
+
+    [-80, 170, -300],
+
+    [120, 210, 240],
+
+    [280, 130, -170],
+
+    [350, 10, 90],
+
+    [300, -120, 260],
+
+    [160, -180, -300],
+
+    [-50, -210, 310],
+
+    [-230, -170, -240],
+
+    [-350, -70, -40],
+
+    [-310, 230, -180],
+
+    [-130, 280, 230],
+
+    [80, 290, -160],
+
+    [240, 250, 100],
+
+    [400, 80, -250],
+
+    [380, -180, -80],
+
+    [-390, -140, 180],
+
+    [-180, -280, 100],
+
+    [40, -300, -180]
+
+];
+
+
+const grupoFotos =
+    new THREE.Group();
+
+
+escena.add(
+    grupoFotos
+);
+
+
+const fotosObjetos = [];
+
+
+posicionesFotos.forEach(
+
+    (posicion, indice) => {
+
+
+        const archivo =
+            nombresFotos[
+                indice %
+                nombresFotos.length
+            ];
+
+
+        const textura =
+            texturaLoader.load(
+                "fotos/" + archivo
+            );
+
+
+        const geometria =
+            new THREE.PlaneGeometry(
+                72,
+                72
+            );
+
+
+        const material =
+            new THREE.MeshBasicMaterial({
+
+                map: textura,
+
+                side: THREE.DoubleSide,
+
+                transparent: true,
+
+                opacity: .95
+
+            });
+
+
+        const foto =
             new THREE.Mesh(
-
-                new THREE.SphereGeometry(
-                    74,
-                    64,
-                    64
-                ),
-
-                new THREE.MeshBasicMaterial({
-
-                    color: 0x6677ff,
-
-                    transparent: true,
-
-                    opacity: .12,
-
-                    side: THREE.BackSide
-
-                })
-
+                geometria,
+                material
             );
 
 
-        escena.add(atmosfera);
+        foto.position.set(
 
-
-        // ==========================================
-        // ANILLOS
-        // ==========================================
-
-        const anillo =
-            new THREE.Mesh(
-
-                new THREE.RingGeometry(
-                    105,
-                    125,
-                    128
-                ),
-
-                new THREE.MeshBasicMaterial({
-
-                    color: 0xaaaaff,
-
-                    transparent: true,
-
-                    opacity: .55,
-
-                    side: THREE.DoubleSide
-
-                })
-
-            );
-
-
-        anillo.rotation.x =
-            Math.PI / 2.5;
-
-
-        escena.add(anillo);
-
-
-        // ==========================================
-        // ESTRELLAS DEL FONDO
-        // ==========================================
-
-        const cantidadEstrellas = 7000;
-
-
-        const posiciones =
-            new Float32Array(
-                cantidadEstrellas * 3
-            );
-
-
-        for (
-            let i = 0;
-            i < cantidadEstrellas;
-            i++
-        ) {
-
-            const radio =
-                900 + Math.random() * 1800;
-
-
-            const theta =
-                Math.random() * Math.PI * 2;
-
-
-            const phi =
-                Math.acos(
-                    2 * Math.random() - 1
-                );
-
-
-            posiciones[i * 3] =
-                radio *
-                Math.sin(phi) *
-                Math.cos(theta);
-
-
-            posiciones[i * 3 + 1] =
-                radio *
-                Math.sin(phi) *
-                Math.sin(theta);
-
-
-            posiciones[i * 3 + 2] =
-                radio *
-                Math.cos(phi);
-
-        }
-
-
-        const estrellasGeometry =
-            new THREE.BufferGeometry();
-
-
-        estrellasGeometry.setAttribute(
-
-            "position",
-
-            new THREE.BufferAttribute(
-                posiciones,
-                3
-            )
+            posicion[0],
+            posicion[1],
+            posicion[2]
 
         );
 
 
-        const estrellasMaterial =
-            new THREE.PointsMaterial({
+        foto.userData.angulo =
+            Math.random() * Math.PI * 2;
+
+
+        foto.userData.distancia =
+            0.4 +
+            Math.random() * .5;
+
+
+        grupoFotos.add(
+            foto
+        );
+
+
+        fotosObjetos.push(
+            foto
+        );
+
+
+        /* MARCO */
+
+        const marco =
+            new THREE.LineSegments(
+
+                new THREE.EdgesGeometry(
+                    geometria
+                ),
+
+                new THREE.LineBasicMaterial({
+
+                    color: 0xffffff,
+
+                    transparent: true,
+
+                    opacity: .35
+
+                })
+
+            );
+
+
+        foto.add(
+            marco
+        );
+
+    }
+
+);
+
+
+
+/* ========================================
+   ESTRELLAS ESPECIALES
+======================================== */
+
+
+const recuerdos = [
+
+    "Desde que llegaste, mi universo cambió.",
+
+    "Entre millones de estrellas, siempre te elegiría a ti.",
+
+    "Mi lugar favorito siempre termina siendo contigo.",
+
+    "Contigo hasta los días normales se vuelven recuerdos.",
+
+    "Gracias por formar parte de mi universo.",
+
+    "Me gusta imaginar todos los lugares que todavía nos faltan conocer.",
+
+    "Si pudiera guardar un momento para siempre, sería uno contigo.",
+
+    "Hay recuerdos que brillan más que cualquier estrella.",
+
+    "No necesito encontrar otro universo si ya encontré el mío contigo.",
+
+    "Ojalá pudiéramos volver a vivir nuestros mejores días una y otra vez.",
+
+    "Cada momento contigo se convirtió en una pequeña parte de mi universo.",
+
+    "No sé qué nos espera más adelante, pero quiero descubrirlo contigo.",
+
+    "De todas las coincidencias de la vida, conocerte fue mi favorita.",
+
+    "A veces miro las estrellas y pienso en lo increíble que fue encontrarte.",
+
+    "Si nuestra historia fuera una galaxia, todavía estaría naciendo.",
+
+    "Gracias por todos esos momentos que probablemente nunca olvidaré.",
+
+    "Mi universo tiene millones de puntos de luz, pero tú siempre destacas.",
+
+    "Y todavía nos quedan muchas estrellas por descubrir."
+
+];
+
+
+const posicionesEstrellas = [
+
+    [-250, 90, 130],
+
+    [-170, 190, -180],
+
+    [-50, 110, 330],
+
+    [120, 160, -280],
+
+    [250, 100, 180],
+
+    [320, 0, -120],
+
+    [260, -130, 260],
+
+    [80, -170, -320],
+
+    [-100, -200, 270],
+
+    [-270, -140, -220],
+
+    [-350, 50, 40],
+
+    [-320, 220, 100],
+
+    [-80, 300, 150],
+
+    [100, 270, -170],
+
+    [230, 220, 30],
+
+    [370, 120, -250],
+
+    [380, -100, -80],
+
+    [-380, -80, 180]
+
+];
+
+
+const estrellasEspeciales = [];
+
+
+/* TEXTURA DE HALO */
+
+function crearHalo() {
+
+    const canvas =
+        document.createElement(
+            "canvas"
+        );
+
+
+    canvas.width = 128;
+
+    canvas.height = 128;
+
+
+    const contexto =
+        canvas.getContext("2d");
+
+
+    const gradiente =
+        contexto.createRadialGradient(
+
+            64,
+            64,
+            0,
+
+            64,
+            64,
+            64
+
+        );
+
+
+    gradiente.addColorStop(
+        0,
+        "rgba(255,255,255,1)"
+    );
+
+
+    gradiente.addColorStop(
+        .08,
+        "rgba(255,255,255,1)"
+    );
+
+
+    gradiente.addColorStop(
+        .25,
+        "rgba(180,190,255,.8)"
+    );
+
+
+    gradiente.addColorStop(
+        .55,
+        "rgba(100,110,255,.3)"
+    );
+
+
+    gradiente.addColorStop(
+        1,
+        "rgba(0,0,0,0)"
+    );
+
+
+    contexto.fillStyle =
+        gradiente;
+
+
+    contexto.fillRect(
+        0,
+        0,
+        128,
+        128
+    );
+
+
+    return new THREE.CanvasTexture(
+        canvas
+    );
+
+}
+
+
+const texturaHalo =
+    crearHalo();
+
+
+
+/* CREAR ESTRELLAS */
+
+posicionesEstrellas.forEach(
+
+    (posicion, indice) => {
+
+
+        const grupo =
+            new THREE.Group();
+
+
+        grupo.position.set(
+
+            posicion[0],
+            posicion[1],
+            posicion[2]
+
+        );
+
+
+        grupo.userData.texto =
+            recuerdos[indice];
+
+
+        grupo.userData.indice =
+            indice;
+
+
+        /* HALO */
+
+        const halo =
+            new THREE.Sprite(
+
+                new THREE.SpriteMaterial({
+
+                    map: texturaHalo,
+
+                    color: 0x9ea8ff,
+
+                    transparent: true,
+
+                    opacity: .95,
+
+                    blending:
+                        THREE.AdditiveBlending,
+
+                    depthWrite: false
+
+                })
+
+            );
+
+
+        halo.scale.set(
+            45,
+            45,
+            1
+        );
+
+
+        grupo.add(
+            halo
+        );
+
+
+        /* NÚCLEO */
+
+        const nucleo =
+            new THREE.Mesh(
+
+                new THREE.SphereGeometry(
+                    5,
+                    16,
+                    16
+                ),
+
+                new THREE.MeshBasicMaterial({
+
+                    color: 0xffffff
+
+                })
+
+            );
+
+
+        grupo.add(
+            nucleo
+        );
+
+
+        /* CRUZ DE LUZ */
+
+        const materialCruz =
+            new THREE.LineBasicMaterial({
 
                 color: 0xffffff,
-
-                size: 2,
 
                 transparent: true,
 
@@ -442,505 +1454,493 @@
             });
 
 
-        const estrellasFondo =
-            new THREE.Points(
+        const puntosCruz = [
 
-                estrellasGeometry,
+            new THREE.Vector3(-16, 0, 0),
 
-                estrellasMaterial
+            new THREE.Vector3(16, 0, 0),
 
-            );
+            new THREE.Vector3(0, -16, 0),
 
+            new THREE.Vector3(0, 16, 0)
 
-        escena.add(estrellasFondo);
-
-
-        // ==========================================
-        // GALAXIA
-        // ==========================================
-
-        const galaxia =
-            new THREE.Group();
+        ];
 
 
-        escena.add(galaxia);
-
-
-        const cantidadGalaxia = 3500;
-
-
-        const posicionesGalaxia =
-            new Float32Array(
-                cantidadGalaxia * 3
-            );
-
-
-        for (
-            let i = 0;
-            i < cantidadGalaxia;
-            i++
-        ) {
-
-            const radio =
-                Math.pow(
-                    Math.random(),
-                    .55
-                ) * 550;
-
-
-            const brazos = 5;
-
-
-            const brazo =
-                Math.floor(
-                    Math.random() * brazos
+        const geometriaCruz =
+            new THREE.BufferGeometry()
+                .setFromPoints(
+                    puntosCruz
                 );
 
 
-            const angulo =
-                (brazo / brazos) *
-                Math.PI * 2
-                +
-                radio * .018;
+        const cruz =
+            new THREE.LineSegments(
+
+                geometriaCruz,
+
+                materialCruz
+
+            );
 
 
-            const variacion =
-                (Math.random() - .5) *
-                80;
-
-
-            posicionesGalaxia[i * 3] =
-                Math.cos(angulo) *
-                radio +
-                variacion;
-
-
-            posicionesGalaxia[i * 3 + 1] =
-                (Math.random() - .5) *
-                45;
-
-
-            posicionesGalaxia[i * 3 + 2] =
-                Math.sin(angulo) *
-                radio +
-                variacion;
-
-        }
-
-
-        const galaxiaGeometry =
-            new THREE.BufferGeometry();
-
-
-        galaxiaGeometry.setAttribute(
-
-            "position",
-
-            new THREE.BufferAttribute(
-                posicionesGalaxia,
-                3
-            )
-
+        grupo.add(
+            cruz
         );
 
 
-        const galaxiaMaterial =
-            new THREE.PointsMaterial({
+        /* DATOS */
 
-                color: 0xaaaaff,
+        grupo.userData.halo =
+            halo;
 
-                size: 2.5,
+        grupo.userData.nucleo =
+            nucleo;
 
-                transparent: true,
+        grupo.userData.cruz =
+            cruz;
 
-                opacity: .75
-
-            });
-
-
-        const particulasGalaxia =
-            new THREE.Points(
-
-                galaxiaGeometry,
-
-                galaxiaMaterial
-
-            );
+        grupo.userData.base =
+            1;
 
 
         galaxia.add(
-            particulasGalaxia
+            grupo
         );
 
 
-        // ==========================================
-        // FOTOS
-        // ==========================================
+        estrellasEspeciales.push(
+            grupo
+        );
 
-        const fotos = [
+    }
 
-            {
-                archivo: "fotos/foto1.jpg",
-                posicion: [-300, 120, 100]
-            },
+);
 
-            {
-                archivo: "fotos/foto2.jpg",
-                posicion: [280, 80, -100]
-            },
 
-            {
-                archivo: "fotos/foto3.jpg",
-                posicion: [100, -160, 280]
-            },
 
-            {
-                archivo: "fotos/foto4.jpg",
-                posicion: [-250, -100, -220]
-            },
+/* ========================================
+   RAYCASTER
+======================================== */
 
-            {
-                archivo: "fotos/foto5.jpg",
-                posicion: [350, -80, 180]
-            },
 
-            {
-                archivo: "fotos/foto6.jpg",
-                posicion: [-100, 220, -300]
-            }
+const raycaster =
+    new THREE.Raycaster();
 
-        ];
 
+const mouse =
+    new THREE.Vector2();
 
-        const loader =
-            new THREE.TextureLoader();
 
+function obtenerMouse(event) {
 
-        fotos.forEach((foto) => {
+    mouse.x =
+        (event.clientX /
+        window.innerWidth) * 2 - 1;
 
-            const textura =
-                loader.load(
-                    foto.archivo
-                );
 
+    mouse.y =
+        -(event.clientY /
+        window.innerHeight) * 2 + 1;
 
-            const geometria =
-                new THREE.PlaneGeometry(
-                    90,
-                    90
-                );
+}
 
 
-            const material =
-                new THREE.MeshBasicMaterial({
 
-                    map: textura,
+/* ========================================
+   ABRIR MENSAJE
+======================================== */
 
-                    side: THREE.DoubleSide,
 
-                    transparent: true
+const pantallaMensaje =
+    document.getElementById(
+        "mensajePantalla"
+    );
 
-                });
 
+const textoMensaje =
+    document.getElementById(
+        "textoMensaje"
+    );
 
-            const imagen =
-                new THREE.Mesh(
-                    geometria,
-                    material
-                );
 
+function abrirMensaje(texto) {
 
-            imagen.position.set(
-                foto.posicion[0],
-                foto.posicion[1],
-                foto.posicion[2]
-            );
+    textoMensaje.innerText =
+        texto;
 
 
-            // Que siempre mire hacia la cámara
+    pantallaMensaje.classList.add(
+        "visible"
+    );
 
-            imagen.lookAt(camara.position);
 
+    controles.enabled = false;
 
-            escena.add(imagen);
+}
 
 
-            // Marco luminoso
 
-            const marco =
-                new THREE.LineSegments(
+/* ========================================
+   CLIC / TOQUE
+======================================== */
 
-                    new THREE.EdgesGeometry(
-                        geometria
-                    ),
 
-                    new THREE.LineBasicMaterial({
-                        color: 0xffffff,
-                        transparent: true,
-                        opacity: .6
-                    })
+renderer.domElement.addEventListener(
 
-                );
+    "pointerdown",
 
+    function(event) {
 
-            imagen.add(marco);
 
-        });
+        obtenerMouse(event);
 
 
-        // ==========================================
-        // ESTRELLAS CON FRASES
-        // ==========================================
+        raycaster.setFromCamera(
 
-        const recuerdos = [
+            mouse,
 
-            {
-                posicion: [-220, 100, 100],
-                texto:
-                "Desde que llegaste, mi universo cambió."
-            },
+            camara
 
-            {
-                posicion: [230, 140, -120],
-                texto:
-                "Entre millones de estrellas, te elegiría a ti."
-            },
-
-            {
-                posicion: [300, -80, 150],
-                texto:
-                "Contigo hasta los días normales se vuelven recuerdos."
-            },
-
-            {
-                posicion: [-280, -120, -160],
-                texto:
-                "Mi lugar favorito siempre termina siendo contigo."
-            },
-
-            {
-                posicion: [80, 220, -220],
-                texto:
-                "Gracias por formar parte de mi universo."
-            },
-
-            {
-                posicion: [-50, -220, 250],
-                texto:
-                "Todavía nos quedan muchísimas historias por vivir."
-            }
-
-        ];
-
-
-        recuerdos.forEach((recuerdo) => {
-
-            const geometria =
-                new THREE.SphereGeometry(
-                    6,
-                    16,
-                    16
-                );
-
-
-            const material =
-                new THREE.MeshBasicMaterial({
-                    color: 0xffffff
-                });
-
-
-            const estrella =
-                new THREE.Mesh(
-                    geometria,
-                    material
-                );
-
-
-            estrella.position.set(
-                recuerdo.posicion[0],
-                recuerdo.posicion[1],
-                recuerdo.posicion[2]
-            );
-
-
-            estrella.userData.texto =
-                recuerdo.texto;
-
-
-            galaxia.add(
-                estrella
-            );
-
-        });
-
-
-        // ==========================================
-        // INTERACCIÓN
-        // ==========================================
-
-        const raycaster =
-            new THREE.Raycaster();
-
-
-        const mouse =
-            new THREE.Vector2();
-
-
-        const mensaje =
-            document.getElementById(
-                "mensaje"
-            );
-
-
-        window.addEventListener(
-            "click",
-            function(event) {
-
-                mouse.x =
-                    (event.clientX /
-                    window.innerWidth) * 2 - 1;
-
-
-                mouse.y =
-                    -(event.clientY /
-                    window.innerHeight) * 2 + 1;
-
-
-                raycaster.setFromCamera(
-                    mouse,
-                    camara
-                );
-
-
-                const objetos =
-                    raycaster.intersectObjects(
-                        galaxia.children,
-                        true
-                    );
-
-
-                for (
-                    const objeto of objetos
-                ) {
-
-                    if (
-                        objeto.object.userData
-                        .texto
-                    ) {
-
-                        mensaje.innerText =
-                            objeto.object.userData.texto;
-
-
-                        mensaje.classList.add(
-                            "visible"
-                        );
-
-
-                        setTimeout(() => {
-
-                            mensaje.classList.remove(
-                                "visible"
-                            );
-
-                        }, 5000);
-
-
-                        break;
-
-                    }
-
-                }
-
-            }
         );
 
 
-        // ==========================================
-        // ANIMACIÓN
-        // ==========================================
+        const objetos =
+            raycaster.intersectObjects(
 
-        const reloj =
-            new THREE.Clock();
+                estrellasEspeciales,
 
+                true
 
-        function animar() {
-
-            requestAnimationFrame(
-                animar
             );
 
 
-            const tiempo =
-                reloj.getElapsedTime();
+        if (
+            objetos.length > 0
+        ) {
 
 
-            planeta.rotation.y =
-                tiempo * .08;
+            let estrella =
+                objetos[0].object;
 
 
-            anillo.rotation.z =
-                tiempo * .15;
+            while (
+
+                estrella.parent &&
+                !estrella.userData.texto
+
+            ) {
+
+                estrella =
+                    estrella.parent;
+
+            }
 
 
-            galaxia.rotation.y =
-                tiempo * .025;
+            if (
+                estrella.userData.texto
+            ) {
+
+                abrirMensaje(
+
+                    estrella.userData.texto
+
+                );
+
+            }
+
+        }
+
+    }
+
+);
 
 
-            estrellasFondo.rotation.y =
-                tiempo * .002;
+
+/* ========================================
+   CERRAR MENSAJE
+======================================== */
 
 
-            particulasGalaxia.rotation.y =
-                tiempo * .008;
+document
+    .getElementById(
+        "cerrarMensaje"
+    )
+    .addEventListener(
+
+        "click",
+
+        function() {
+
+            pantallaMensaje
+                .classList
+                .remove(
+                    "visible"
+                );
 
 
-            atmosfera.scale.setScalar(
-                1 +
-                Math.sin(tiempo * 1.5) *
-                .015
-            );
+            controles.enabled =
+                true;
+
+        }
+
+    );
 
 
-            controles.update();
+
+/* ========================================
+   ESC PARA CERRAR
+======================================== */
 
 
-            renderer.render(
-                escena,
-                camara
+window.addEventListener(
+
+    "keydown",
+
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            pantallaMensaje
+                .classList
+                .remove(
+                    "visible"
+                );
+
+
+            controles.enabled =
+                true;
+
+        }
+
+    }
+
+);
+
+
+
+/* ========================================
+   ANIMACIÓN
+======================================== */
+
+
+const reloj =
+    new THREE.Clock();
+
+
+function animar() {
+
+
+    requestAnimationFrame(
+        animar
+    );
+
+
+    const tiempo =
+        reloj.getElapsedTime();
+
+
+
+    /* PLANETA */
+
+    if (planeta) {
+
+        planeta.rotation.y =
+            tiempo * .08;
+
+    }
+
+
+    /* ATMÓSFERA */
+
+    const escalaAtmosfera =
+
+        1 +
+
+        Math.sin(
+            tiempo * 1.3
+        ) *
+
+        .018;
+
+
+    atmosfera.scale.setScalar(
+        escalaAtmosfera
+    );
+
+
+    /* ANILLO */
+
+    anillo.rotation.z =
+        tiempo * .12;
+
+
+
+    /* GALAXIA */
+
+    galaxia.rotation.y =
+        tiempo * .018;
+
+
+    particulasGalaxia.rotation.y =
+        tiempo * .006;
+
+
+    fondo.rotation.y =
+        tiempo * .0015;
+
+
+
+    /* FOTOS */
+
+    fotosObjetos.forEach(
+
+        (foto, indice) => {
+
+
+            const velocidad =
+                .0008 +
+                (indice % 4) *
+                .00015;
+
+
+            foto.userData.angulo +=
+                velocidad;
+
+
+            /* movimiento suave */
+
+            foto.rotation.z =
+
+                Math.sin(
+                    tiempo * .4 +
+                    indice
+                ) *
+
+                .08;
+
+
+            /*
+                Cada foto mira hacia
+                la cámara.
+            */
+
+            foto.lookAt(
+                camara.position
             );
 
         }
 
-
-        animar();
-
-
-        // ==========================================
-        // RESPONSIVE
-        // ==========================================
-
-        window.addEventListener(
-            "resize",
-            function() {
-
-                camara.aspect =
-                    window.innerWidth /
-                    window.innerHeight;
+    );
 
 
-                camara.updateProjectionMatrix();
+
+    /* ESTRELLAS ESPECIALES */
+
+    estrellasEspeciales.forEach(
+
+        (estrella, indice) => {
 
 
-                renderer.setSize(
-                    window.innerWidth,
-                    window.innerHeight
+            const pulso =
+
+                1 +
+
+                Math.sin(
+                    tiempo * 2.2 +
+                    indice
+                ) *
+
+                .18;
+
+
+            estrella.userData.halo
+                .scale.set(
+
+                    45 * pulso,
+
+                    45 * pulso,
+
+                    1
+
                 );
 
-            }
+
+            estrella.userData.nucleo
+                .scale.setScalar(
+                    pulso
+                );
+
+
+            estrella.userData.cruz
+                .scale.setScalar(
+                    pulso
+                );
+
+
+            estrella.rotation.z =
+
+                tiempo *
+                (.2 + indice * .01);
+
+        }
+
+    );
+
+
+
+    controles.update();
+
+
+    renderer.render(
+        escena,
+        camara
+    );
+
+}
+
+
+animar();
+
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+
+window.addEventListener(
+
+    "resize",
+
+    function() {
+
+
+        camara.aspect =
+
+            window.innerWidth /
+            window.innerHeight;
+
+
+        camara.updateProjectionMatrix();
+
+
+        renderer.setSize(
+
+            window.innerWidth,
+            window.innerHeight
+
         );
 
-    </script>
+    }
+
+);
+
+
+</script>
 
 </body>
+
 </html>
