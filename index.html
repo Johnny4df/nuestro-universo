@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Felices tres meses, amor mío</title>
+    <title>Felices tres meses, amor mío.</title>
 
     <style>
 
@@ -34,46 +34,80 @@
         ======================================== */
 
         #titulo {
+
             position: fixed;
-            top: 25px;
+
+            top: 28px;
+
             left: 0;
+
             width: 100%;
+
             text-align: center;
-            color: #ffffff;
+
+            color: white;
+
             z-index: 20;
+
             pointer-events: none;
+
             text-shadow:
-                0 0 8px #ffffff,
-                0 0 18px #35fff3,
-                0 0 35px #00d9cc,
-                0 0 65px #00aaa0;
+
+                0 0 10px white,
+                0 0 22px #5fcaff,
+                0 0 45px #168cff,
+                0 0 70px #075dcc;
+
         }
 
         #titulo h1 {
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            font-size: 31px;
-            font-weight: 400;
+
+            font-family:
+                "Trebuchet MS",
+                Arial,
+                sans-serif;
+
+            font-size: 29px;
+
+            font-weight: 300;
+
             letter-spacing: 3px;
+
         }
 
-        #titulo .corazonTitulo {
+        #titulo .corazon {
+
             display: block;
-            margin-top: 4px;
-            font-size: 38px;
-            color: #35fff3;
+
+            margin-top: 3px;
+
+            font-size: 35px;
+
+            color: #54cfff;
+
             text-shadow:
-                0 0 10px #ffffff,
-                0 0 20px #35fff3,
-                0 0 40px #00d9cc;
-            animation: latido 1.5s infinite ease-in-out;
+
+                0 0 10px white,
+                0 0 20px #54cfff,
+                0 0 40px #168cff;
+
+            animation:
+                latido 1.5s infinite ease-in-out;
+
         }
 
         #titulo p {
-            margin-top: 4px;
+
+            margin-top: 3px;
+
             font-family: Arial, sans-serif;
+
             font-size: 11px;
+
+            opacity: .7;
+
             letter-spacing: 3px;
-            opacity: .75;
+
         }
 
         @keyframes latido {
@@ -83,7 +117,101 @@
             }
 
             50% {
-                transform: scale(1.15);
+                transform: scale(1.13);
+            }
+
+        }
+
+        /* ========================================
+           FRASES
+        ======================================== */
+
+        .frase {
+
+            position: fixed;
+
+            color:
+                rgba(170, 225, 255, .75);
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 14px;
+
+            font-style: italic;
+
+            pointer-events: none;
+
+            z-index: 5;
+
+            text-shadow:
+
+                0 0 5px white,
+                0 0 12px #45bfff,
+                0 0 25px #167cff;
+
+            animation:
+                flotar 5s ease-in-out infinite;
+
+        }
+
+        .frase1 {
+
+            left: 5%;
+
+            top: 42%;
+
+        }
+
+        .frase2 {
+
+            right: 5%;
+
+            top: 48%;
+
+            animation-delay: 1.2s;
+
+        }
+
+        .frase3 {
+
+            left: 7%;
+
+            top: 68%;
+
+            animation-delay: 2s;
+
+        }
+
+        .frase4 {
+
+            right: 7%;
+
+            top: 70%;
+
+            animation-delay: 3s;
+
+        }
+
+        @keyframes flotar {
+
+            0%, 100% {
+
+                transform:
+                    translateY(0);
+
+                opacity: .45;
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-10px);
+
+                opacity: .9;
+
             }
 
         }
@@ -93,19 +221,30 @@
         ======================================== */
 
         #ayuda {
+
             position: fixed;
+
             right: 18px;
+
             bottom: 18px;
-            color: #dffffd;
+
+            color: white;
+
             font-family: Arial, sans-serif;
+
             font-size: 11px;
-            opacity: .5;
+
+            opacity: .45;
+
             z-index: 20;
-            text-shadow: 0 0 8px #00fff0;
+
+            text-shadow:
+                0 0 8px #299fff;
+
         }
 
         /* ========================================
-           SOBRE / MENSAJE
+           MENSAJE
         ======================================== */
 
         #mensajePantalla {
@@ -115,13 +254,15 @@
             inset: 0;
 
             background:
+
                 radial-gradient(
                     circle at center,
-                    rgba(0, 80, 80, .35),
-                    rgba(0, 0, 5, .97)
+                    rgba(25, 70, 130, .35),
+                    rgba(0, 0, 10, .97)
                 );
 
-            backdrop-filter: blur(15px);
+            backdrop-filter:
+                blur(15px);
 
             display: flex;
 
@@ -136,6 +277,7 @@
             visibility: hidden;
 
             transition:
+
                 opacity .5s ease,
                 visibility .5s ease;
 
@@ -157,38 +299,46 @@
 
             position: relative;
 
-            width: min(650px, 88vw);
+            width:
+                min(650px, 88vw);
 
             min-height: 400px;
 
-            padding: 70px 55px 55px;
+            padding:
+                70px 55px 55px;
 
             background:
+
                 linear-gradient(
                     145deg,
-                    #ecffff,
-                    #ccefeb
+                    #edf8ff,
+                    #d7e8f3
                 );
 
-            color: #163b3a;
+            color: #203044;
 
-            border-radius: 10px;
-
-            border: 1px solid rgba(53,255,243,.4);
+            border-radius: 9px;
 
             box-shadow:
-                0 0 30px rgba(255,255,255,.15),
-                0 0 80px rgba(0,255,240,.3),
-                0 0 150px rgba(0,180,170,.2);
+
+                0 0 30px
+                    rgba(255,255,255,.15),
+
+                0 0 100px
+                    rgba(50,160,255,.25);
 
             transform:
+
                 scale(.4)
                 rotateX(35deg);
 
             opacity: 0;
 
             transition:
-                transform .8s cubic-bezier(.2,.8,.2,1),
+
+                transform .8s
+                    cubic-bezier(.2,.8,.2,1),
+
                 opacity .6s ease;
 
         }
@@ -196,6 +346,7 @@
         #mensajePantalla.visible .sobre {
 
             transform:
+
                 scale(1)
                 rotateX(0deg);
 
@@ -203,25 +354,26 @@
 
         }
 
-        /* ========================================
-           PAPEL
-        ======================================== */
-
         .papel {
+
             text-align: center;
+
         }
 
         .papel .pequeno {
 
-            font-family: Arial, sans-serif;
+            font-family:
+                Arial,
+                sans-serif;
 
             font-size: 12px;
 
             letter-spacing: 4px;
 
-            color: #357c79;
+            color: #57748e;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
 
             margin-bottom: 25px;
 
@@ -235,7 +387,7 @@
 
             margin-bottom: 30px;
 
-            color: #164e4b;
+            color: #29445c;
 
         }
 
@@ -265,7 +417,7 @@
 
             border-radius: 50%;
 
-            background: #00bdb0;
+            background: #208ed4;
 
             color: white;
 
@@ -278,12 +430,14 @@
             font-size: 22px;
 
             box-shadow:
-                0 0 15px rgba(0,255,240,.5);
+
+                0 0 20px
+                rgba(40,170,255,.45);
 
         }
 
         /* ========================================
-           CERRAR
+           BOTON
         ======================================== */
 
         #cerrarMensaje {
@@ -302,9 +456,10 @@
 
             border-radius: 50%;
 
-            background: rgba(30,90,90,.1);
+            background:
+                rgba(40,70,90,.1);
 
-            color: #164e4b;
+            color: #40566c;
 
             font-size: 20px;
 
@@ -314,75 +469,8 @@
 
         #cerrarMensaje:hover {
 
-            background: rgba(30,90,90,.25);
-
-        }
-
-        /* ========================================
-           TEXTO FLOTANTE
-        ======================================== */
-
-        .frase {
-
-            position: fixed;
-
-            color: rgba(150,255,250,.8);
-
-            font-family: Georgia, serif;
-
-            font-size: 15px;
-
-            font-style: italic;
-
-            pointer-events: none;
-
-            z-index: 5;
-
-            text-shadow:
-                0 0 5px #ffffff,
-                0 0 12px #00fff0,
-                0 0 25px #00bdb0;
-
-            animation:
-                flotarFrase 5s ease-in-out infinite;
-
-        }
-
-        .frase1 {
-            left: 5%;
-            top: 42%;
-            animation-delay: 0s;
-        }
-
-        .frase2 {
-            right: 5%;
-            top: 48%;
-            animation-delay: 1.2s;
-        }
-
-        .frase3 {
-            left: 9%;
-            top: 67%;
-            animation-delay: 2.1s;
-        }
-
-        .frase4 {
-            right: 8%;
-            top: 70%;
-            animation-delay: 3s;
-        }
-
-        @keyframes flotarFrase {
-
-            0%, 100% {
-                transform: translateY(0);
-                opacity: .55;
-            }
-
-            50% {
-                transform: translateY(-12px);
-                opacity: 1;
-            }
+            background:
+                rgba(40,70,90,.2);
 
         }
 
@@ -393,45 +481,58 @@
         @media (max-width: 600px) {
 
             #titulo {
-                top: 18px;
+
+                top: 20px;
+
             }
 
             #titulo h1 {
-                font-size: 22px;
-                letter-spacing: 2px;
-                padding: 0 15px;
+
+                font-size: 21px;
+
+                letter-spacing: 1px;
+
+                padding: 0 10px;
+
             }
 
-            #titulo .corazonTitulo {
-                font-size: 32px;
+            #titulo .corazon {
+
+                font-size: 31px;
+
             }
 
             #titulo p {
+
                 font-size: 9px;
-                letter-spacing: 2px;
+
             }
 
             .sobre {
 
                 padding:
-                    65px
-                    28px
-                    40px;
+                    65px 28px 40px;
 
                 min-height: 350px;
 
             }
 
             .papel h2 {
+
                 font-size: 25px;
+
             }
 
             .papel p {
+
                 font-size: 18px;
+
             }
 
             .frase {
-                font-size: 11px;
+
+                font-size: 10px;
+
             }
 
         }
@@ -447,30 +548,22 @@
 <div id="contenedor"></div>
 
 
-<!-- ========================================
-     TITULO
-======================================== -->
-
 <div id="titulo">
 
     <h1>
         Felices tres meses, amor mío.
     </h1>
 
-    <span class="corazonTitulo">
+    <span class="corazon">
         ♥
     </span>
 
     <p>
-        Tres meses de nosotros
+        Nuestro pequeño universo
     </p>
 
 </div>
 
-
-<!-- ========================================
-     FRASES
-======================================== -->
 
 <div class="frase frase1">
     Eres mi lugar favorito.
@@ -488,10 +581,6 @@
     Y por todos los que nos faltan.
 </div>
 
-
-<!-- ========================================
-     AYUDA
-======================================== -->
 
 <div id="ayuda">
 
@@ -546,11 +635,13 @@
 
 {
     "imports": {
+
         "three":
         "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
 
         "three/addons/":
         "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+
     }
 }
 
@@ -559,7 +650,9 @@
 
 <script type="module">
 
-import * as THREE from "three";
+import * as THREE
+    from "three";
+
 
 import {
     OrbitControls
@@ -575,13 +668,17 @@ from
 const escena =
     new THREE.Scene();
 
+
 escena.background =
-    new THREE.Color(0x000304);
+    new THREE.Color(
+        0x000005
+    );
+
 
 escena.fog =
     new THREE.FogExp2(
-        0x000304,
-        0.0008
+        0x000005,
+        0.0007
     );
 
 
@@ -603,10 +700,11 @@ const camara =
 
     );
 
+
 camara.position.set(
     0,
-    120,
-    700
+    170,
+    650
 );
 
 
@@ -623,6 +721,7 @@ const renderer =
 
     });
 
+
 renderer.setPixelRatio(
 
     Math.min(
@@ -632,14 +731,22 @@ renderer.setPixelRatio(
 
 );
 
+
 renderer.setSize(
+
     window.innerWidth,
     window.innerHeight
+
 );
 
+
 document
-    .getElementById("contenedor")
-    .appendChild(renderer.domElement);
+    .getElementById(
+        "contenedor"
+    )
+    .appendChild(
+        renderer.domElement
+    );
 
 
 /* ========================================
@@ -648,118 +755,566 @@ document
 
 const controles =
     new OrbitControls(
+
         camara,
+
         renderer.domElement
+
     );
 
-controles.enableDamping = true;
 
-controles.dampingFactor = .035;
+controles.enableDamping =
+    true;
 
-controles.enablePan = false;
+controles.dampingFactor =
+    .035;
 
-controles.minDistance = 180;
+controles.enablePan =
+    false;
 
-controles.maxDistance = 1200;
+controles.minDistance =
+    180;
 
-controles.autoRotate = true;
+controles.maxDistance =
+    1200;
 
-controles.autoRotateSpeed = .15;
+controles.autoRotate =
+    true;
+
+controles.autoRotateSpeed =
+    .16;
 
 
 /* ========================================
-   LUZ TURQUESA
+   LUZ CENTRAL
 ======================================== */
 
 const luz =
     new THREE.PointLight(
-        0x45fff4,
-        8,
-        1200
+
+        0xffffff,
+
+        7,
+
+        900
+
     );
 
 escena.add(luz);
 
 
 /* ========================================
-   LUZ CENTRAL BLANCA
+   PLANETA ORIGINAL
 ======================================== */
 
-const luzBlanca =
-    new THREE.PointLight(
-        0xffffff,
-        5,
-        500
-    );
+const texturaLoader =
+    new THREE.TextureLoader();
 
-escena.add(luzBlanca);
+
+let planeta;
+
+
+texturaLoader.load(
+
+    "fotos/planeta.jpg",
+
+    function(textura) {
+
+        const geometria =
+            new THREE.SphereGeometry(
+
+                70,
+
+                64,
+
+                64
+
+            );
+
+
+        const material =
+            new THREE.MeshStandardMaterial({
+
+                map:
+                    textura,
+
+                roughness:
+                    .75,
+
+                metalness:
+                    .1
+
+            });
+
+
+        planeta =
+            new THREE.Mesh(
+
+                geometria,
+
+                material
+
+            );
+
+
+        escena.add(
+            planeta
+        );
+
+    }
+
+);
 
 
 /* ========================================
-   TEXTURA DE HALO
+   ATMÓSFERA
+======================================== */
+
+const atmosfera =
+    new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+            75,
+            64,
+            64
+        ),
+
+        new THREE.MeshBasicMaterial({
+
+            color:
+                0x3b8cff,
+
+            transparent:
+                true,
+
+            opacity:
+                .14,
+
+            side:
+                THREE.BackSide
+
+        })
+
+    );
+
+
+escena.add(
+    atmosfera
+);
+
+
+/* ========================================
+   ANILLOS
+======================================== */
+
+const anillo =
+    new THREE.Mesh(
+
+        new THREE.RingGeometry(
+
+            100,
+
+            128,
+
+            160
+
+        ),
+
+        new THREE.MeshBasicMaterial({
+
+            color:
+                0x69cfff,
+
+            transparent:
+                true,
+
+            opacity:
+                .45,
+
+            side:
+                THREE.DoubleSide
+
+        })
+
+    );
+
+
+anillo.rotation.x =
+    Math.PI / 2.4;
+
+
+escena.add(
+    anillo
+);
+
+
+/* ========================================
+   GALAXIA DE FONDO
+======================================== */
+
+const cantidadFondo =
+    8000;
+
+
+const posicionesFondo =
+    new Float32Array(
+
+        cantidadFondo * 3
+
+    );
+
+
+for (
+
+    let i = 0;
+
+    i < cantidadFondo;
+
+    i++
+
+) {
+
+    const radio =
+
+        900 +
+        Math.random() * 1800;
+
+
+    const theta =
+
+        Math.random() *
+        Math.PI * 2;
+
+
+    const phi =
+
+        Math.acos(
+
+            2 *
+            Math.random() -
+            1
+
+        );
+
+
+    posicionesFondo[i * 3] =
+
+        radio *
+        Math.sin(phi) *
+        Math.cos(theta);
+
+
+    posicionesFondo[i * 3 + 1] =
+
+        radio *
+        Math.sin(phi) *
+        Math.sin(theta);
+
+
+    posicionesFondo[i * 3 + 2] =
+
+        radio *
+        Math.cos(phi);
+
+}
+
+
+const fondoGeometry =
+    new THREE.BufferGeometry();
+
+
+fondoGeometry.setAttribute(
+
+    "position",
+
+    new THREE.BufferAttribute(
+
+        posicionesFondo,
+
+        3
+
+    )
+
+);
+
+
+const fondoMaterial =
+    new THREE.PointsMaterial({
+
+        color:
+            0xffffff,
+
+        size:
+            1.8,
+
+        transparent:
+            true,
+
+        opacity:
+            .75
+
+    });
+
+
+const fondo =
+    new THREE.Points(
+
+        fondoGeometry,
+
+        fondoMaterial
+
+    );
+
+
+escena.add(
+    fondo
+);
+
+
+/* ========================================
+   GALAXIA ESPIRAL
+======================================== */
+
+const galaxia =
+    new THREE.Group();
+
+
+escena.add(
+    galaxia
+);
+
+
+const cantidadGalaxia =
+    4500;
+
+
+const posicionesGalaxia =
+    new Float32Array(
+
+        cantidadGalaxia * 3
+
+    );
+
+
+for (
+
+    let i = 0;
+
+    i < cantidadGalaxia;
+
+    i++
+
+) {
+
+    const radio =
+
+        Math.pow(
+            Math.random(),
+            .55
+        ) * 560;
+
+
+    const brazos =
+        5;
+
+
+    const brazo =
+
+        Math.floor(
+
+            Math.random() *
+            brazos
+
+        );
+
+
+    const angulo =
+
+        (brazo / brazos) *
+        Math.PI * 2 +
+
+        radio * .018;
+
+
+    const desviacion =
+
+        (Math.random() - .5) *
+        75;
+
+
+    posicionesGalaxia[i * 3] =
+
+        Math.cos(angulo) *
+        radio +
+        desviacion;
+
+
+    posicionesGalaxia[i * 3 + 1] =
+
+        (Math.random() - .5) *
+        45;
+
+
+    posicionesGalaxia[i * 3 + 2] =
+
+        Math.sin(angulo) *
+        radio +
+        desviacion;
+
+}
+
+
+const galaxiaGeometry =
+    new THREE.BufferGeometry();
+
+
+galaxiaGeometry.setAttribute(
+
+    "position",
+
+    new THREE.BufferAttribute(
+
+        posicionesGalaxia,
+
+        3
+
+    )
+
+);
+
+
+const galaxiaMaterial =
+    new THREE.PointsMaterial({
+
+        color:
+            0x7abfff,
+
+        size:
+            2.4,
+
+        transparent:
+            true,
+
+        opacity:
+            .7
+
+    });
+
+
+const particulasGalaxia =
+    new THREE.Points(
+
+        galaxiaGeometry,
+
+        galaxiaMaterial
+
+    );
+
+
+galaxia.add(
+    particulasGalaxia
+);
+
+
+/* ========================================
+   HALO
 ======================================== */
 
 function crearHalo() {
 
     const canvas =
-        document.createElement("canvas");
+        document.createElement(
+            "canvas"
+        );
 
-    canvas.width = 128;
-    canvas.height = 128;
+
+    canvas.width =
+        128;
+
+    canvas.height =
+        128;
+
 
     const contexto =
-        canvas.getContext("2d");
+        canvas.getContext(
+            "2d"
+        );
+
 
     const gradiente =
         contexto.createRadialGradient(
+
             64,
             64,
             0,
+
             64,
             64,
             64
+
         );
 
+
     gradiente.addColorStop(
+
         0,
         "rgba(255,255,255,1)"
+
     );
 
+
     gradiente.addColorStop(
+
         .08,
         "rgba(255,255,255,1)"
+
     );
 
+
     gradiente.addColorStop(
+
         .25,
-        "rgba(80,255,245,.9)"
+        "rgba(130,210,255,.9)"
+
     );
 
+
     gradiente.addColorStop(
+
         .55,
-        "rgba(0,220,210,.35)"
+        "rgba(30,130,255,.3)"
+
     );
 
+
     gradiente.addColorStop(
+
         1,
         "rgba(0,0,0,0)"
+
     );
+
 
     contexto.fillStyle =
         gradiente;
 
+
     contexto.fillRect(
+
         0,
         0,
         128,
         128
+
     );
+
 
     return new THREE.CanvasTexture(
         canvas
     );
 
 }
+
 
 const texturaHalo =
     crearHalo();
@@ -769,41 +1324,60 @@ const texturaHalo =
    CORAZÓN DE PARTÍCULAS
 ======================================== */
 
-const cantidadCorazon = 10000;
+const cantidadCorazon =
+    9000;
+
 
 const posicionesCorazon =
     new Float32Array(
+
         cantidadCorazon * 3
+
     );
 
-const coloresCorazon =
+
+const posicionesInicio =
     new Float32Array(
+
         cantidadCorazon * 3
+
+    );
+
+
+const posicionesFinal =
+    new Float32Array(
+
+        cantidadCorazon * 3
+
     );
 
 
 for (
+
     let i = 0;
+
     i < cantidadCorazon;
+
     i++
+
 ) {
+
+    /*
+       CORAZÓN FINAL
+
+       Se encuentra arriba
+       del planeta.
+    */
 
     const t =
         Math.random() *
-        Math.PI *
-        2;
+        Math.PI * 2;
+
 
     const escala =
-        12 +
-        Math.random() * 4;
+        5.7 +
+        Math.random() * .8;
 
-    const ruido =
-        (Math.random() - .5) *
-        7;
-
-    /*
-        Fórmula clásica del corazón.
-    */
 
     const x =
         16 *
@@ -812,43 +1386,93 @@ for (
             3
         );
 
+
     const y =
         13 *
-        Math.cos(t)
+            Math.cos(t)
+
         - 5 *
-        Math.cos(2 * t)
+            Math.cos(2 * t)
+
         - 2 *
-        Math.cos(3 * t)
+            Math.cos(3 * t)
+
         - Math.cos(4 * t);
 
-    const profundidad =
+
+    const z =
         (Math.random() - .5) *
-        18;
-
-
-    posicionesCorazon[i * 3] =
-        x * escala + ruido;
-
-    posicionesCorazon[i * 3 + 1] =
-        y * escala + ruido;
-
-    posicionesCorazon[i * 3 + 2] =
-        profundidad;
+        30;
 
 
     /*
-        Color turquesa con pequeñas
-        variaciones.
+       El corazón estará
+       aproximadamente 280
+       unidades sobre el planeta.
     */
 
-    coloresCorazon[i * 3] =
-        .05 + Math.random() * .15;
+    posicionesFinal[i * 3] =
+        x * escala;
 
-    coloresCorazon[i * 3 + 1] =
-        .75 + Math.random() * .25;
 
-    coloresCorazon[i * 3 + 2] =
-        .70 + Math.random() * .30;
+    posicionesFinal[i * 3 + 1] =
+        y * escala + 270;
+
+
+    posicionesFinal[i * 3 + 2] =
+        z;
+
+
+    /*
+       POSICIÓN INICIAL
+
+       Todas las partículas
+       nacen cerca del planeta.
+    */
+
+    const angulo =
+        Math.random() *
+        Math.PI * 2;
+
+
+    const radio =
+        Math.random() *
+        55;
+
+
+    posicionesInicio[i * 3] =
+
+        Math.cos(angulo) *
+        radio;
+
+
+    posicionesInicio[i * 3 + 1] =
+
+        50 +
+        Math.random() * 40;
+
+
+    posicionesInicio[i * 3 + 2] =
+
+        Math.sin(angulo) *
+        radio;
+
+    
+    /*
+       Comenzamos desde
+       la posición del planeta.
+    */
+
+    posicionesCorazon[i * 3] =
+        posicionesInicio[i * 3];
+
+
+    posicionesCorazon[i * 3 + 1] =
+        posicionesInicio[i * 3 + 1];
+
+
+    posicionesCorazon[i * 3 + 2] =
+        posicionesInicio[i * 3 + 2];
 
 }
 
@@ -856,24 +1480,17 @@ for (
 const corazonGeometry =
     new THREE.BufferGeometry();
 
+
 corazonGeometry.setAttribute(
 
     "position",
 
     new THREE.BufferAttribute(
+
         posicionesCorazon,
+
         3
-    )
 
-);
-
-corazonGeometry.setAttribute(
-
-    "color",
-
-    new THREE.BufferAttribute(
-        coloresCorazon,
-        3
     )
 
 );
@@ -882,18 +1499,23 @@ corazonGeometry.setAttribute(
 const corazonMaterial =
     new THREE.PointsMaterial({
 
-        size: 2.5,
+        color:
+            0x66cfff,
 
-        vertexColors: true,
+        size:
+            2.4,
 
-        transparent: true,
+        transparent:
+            true,
 
-        opacity: .95,
+        opacity:
+            0,
 
         blending:
             THREE.AdditiveBlending,
 
-        depthWrite: false
+        depthWrite:
+            false
 
     });
 
@@ -908,13 +1530,9 @@ const corazon =
     );
 
 
-corazon.scale.set(
-    1.5,
-    1.5,
-    1.5
+escena.add(
+    corazon
 );
-
-escena.add(corazon);
 
 
 /* ========================================
@@ -926,206 +1544,196 @@ const haloCorazon =
 
         new THREE.SpriteMaterial({
 
-            map: texturaHalo,
+            map:
+                texturaHalo,
 
-            color: 0x00fff0,
+            color:
+                0x2aa8ff,
 
-            transparent: true,
+            transparent:
+                true,
 
-            opacity: .18,
+            opacity:
+                0,
 
             blending:
                 THREE.AdditiveBlending,
 
-            depthWrite: false
+            depthWrite:
+                false
 
         })
 
     );
 
-haloCorazon.scale.set(
-    700,
-    700,
-    1
+
+haloCorazon.position.set(
+
+    0,
+    300,
+    0
+
 );
 
-escena.add(haloCorazon);
+
+haloCorazon.scale.set(
+
+    550,
+    550,
+    1
+
+);
+
+
+escena.add(
+    haloCorazon
+);
 
 
 /* ========================================
-   PEQUEÑOS CORAZONES
+   PARTÍCULAS EXTRA DEL EFECTO
 ======================================== */
 
-const corazonesPequenos = [];
+const cantidadExplosion =
+    2500;
+
+
+const posicionesExplosion =
+    new Float32Array(
+
+        cantidadExplosion * 3
+
+    );
+
+
+const velocidadesExplosion =
+    new Float32Array(
+
+        cantidadExplosion * 3
+
+    );
 
 
 for (
+
     let i = 0;
-    i < 45;
+
+    i < cantidadExplosion;
+
     i++
+
 ) {
-
-    const sprite =
-        new THREE.Sprite(
-
-            new THREE.SpriteMaterial({
-
-                map: texturaHalo,
-
-                color: 0x48fff3,
-
-                transparent: true,
-
-                opacity: .65,
-
-                blending:
-                    THREE.AdditiveBlending,
-
-                depthWrite: false
-
-            })
-
-        );
-
 
     const angulo =
         Math.random() *
         Math.PI * 2;
 
-    const radio =
-        250 +
-        Math.random() * 450;
-
-
-    sprite.position.set(
-
-        Math.cos(angulo) * radio,
-
-        (Math.random() - .5) * 500,
-
-        Math.sin(angulo) * radio
-
-    );
-
-
-    const tamaño =
-        12 +
-        Math.random() * 20;
-
-    sprite.scale.set(
-        tamaño,
-        tamaño,
-        1
-    );
-
-
-    sprite.userData.velocidad =
-        .3 +
-        Math.random() * .8;
-
-    sprite.userData.fase =
-        Math.random() * 10;
-
-
-    escena.add(sprite);
-
-    corazonesPequenos.push(sprite);
-
-}
-
-
-/* ========================================
-   ESTRELLAS DEL FONDO
-======================================== */
-
-const cantidadFondo =
-    7000;
-
-const posicionesFondo =
-    new Float32Array(
-        cantidadFondo * 3
-    );
-
-
-for (
-    let i = 0;
-    i < cantidadFondo;
-    i++
-) {
 
     const radio =
-        700 +
-        Math.random() * 1800;
-
-    const theta =
         Math.random() *
-        Math.PI * 2;
+        45;
 
-    const phi =
-        Math.acos(
-            2 * Math.random() - 1
-        );
 
-    posicionesFondo[i * 3] =
-        radio *
-        Math.sin(phi) *
-        Math.cos(theta);
+    posicionesExplosion[i * 3] =
 
-    posicionesFondo[i * 3 + 1] =
-        radio *
-        Math.sin(phi) *
-        Math.sin(theta);
+        Math.cos(angulo) *
+        radio;
 
-    posicionesFondo[i * 3 + 2] =
-        radio *
-        Math.cos(phi);
+
+    posicionesExplosion[i * 3 + 1] =
+
+        60 +
+        Math.random() *
+        50;
+
+
+    posicionesExplosion[i * 3 + 2] =
+
+        Math.sin(angulo) *
+        radio;
+
+
+    velocidadesExplosion[i * 3] =
+
+        (Math.random() - .5) *
+        .8;
+
+
+    velocidadesExplosion[i * 3 + 1] =
+
+        .4 +
+        Math.random() *
+        1.5;
+
+
+    velocidadesExplosion[i * 3 + 2] =
+
+        (Math.random() - .5) *
+        .8;
 
 }
 
 
-const fondoGeometry =
+const explosionGeometry =
     new THREE.BufferGeometry();
 
-fondoGeometry.setAttribute(
+
+explosionGeometry.setAttribute(
 
     "position",
 
     new THREE.BufferAttribute(
-        posicionesFondo,
+
+        posicionesExplosion,
+
         3
+
     )
 
 );
 
 
-const fondoMaterial =
+const explosionMaterial =
     new THREE.PointsMaterial({
 
-        color: 0x8ffff8,
+        color:
+            0x8ddcff,
 
-        size: 1.7,
+        size:
+            2,
 
-        transparent: true,
+        transparent:
+            true,
 
-        opacity: .7
+        opacity:
+            0,
+
+        blending:
+            THREE.AdditiveBlending,
+
+        depthWrite:
+            false
 
     });
 
 
-const fondo =
+const explosion =
     new THREE.Points(
 
-        fondoGeometry,
+        explosionGeometry,
 
-        fondoMaterial
+        explosionMaterial
 
     );
 
-escena.add(fondo);
+
+escena.add(
+    explosion
+);
 
 
 /* ========================================
-   FOTOS
+   FOTOS ORBITALES
 ======================================== */
 
 const nombresFotos = [
@@ -1288,6 +1896,7 @@ const datosFotos = [
 const grupoFotos =
     new THREE.Group();
 
+
 escena.add(
     grupoFotos
 );
@@ -1295,10 +1904,6 @@ escena.add(
 
 const fotosObjetos = [];
 
-
-/* ========================================
-   CREAR FOTOS
-======================================== */
 
 datosFotos.forEach(
 
@@ -1312,7 +1917,7 @@ datosFotos.forEach(
 
 
         const textura =
-            new THREE.TextureLoader().load(
+            texturaLoader.load(
                 "fotos/" + archivo
             );
 
@@ -1325,11 +1930,14 @@ datosFotos.forEach(
             Math.random() *
             Math.PI * 2;
 
+
         grupo.userData.radio =
             datos.radio;
 
+
         grupo.userData.altura =
             datos.altura;
+
 
         grupo.userData.velocidad =
             datos.velocidad;
@@ -1340,41 +1948,45 @@ datosFotos.forEach(
         );
 
 
-        /* FOTO */
-
         const geometria =
             new THREE.PlaneGeometry(
-                75,
-                75
+                78,
+                78
             );
 
 
         const material =
             new THREE.MeshBasicMaterial({
 
-                map: textura,
+                map:
+                    textura,
 
                 side:
                     THREE.DoubleSide,
 
-                transparent: true,
+                transparent:
+                    true,
 
-                opacity: .95
+                opacity:
+                    .96
 
             });
 
 
         const foto =
             new THREE.Mesh(
+
                 geometria,
+
                 material
+
             );
 
 
-        grupo.add(foto);
+        grupo.add(
+            foto
+        );
 
-
-        /* HALO */
 
         const halo =
             new THREE.Sprite(
@@ -1385,13 +1997,13 @@ datosFotos.forEach(
                         texturaHalo,
 
                     color:
-                        0x35fff3,
+                        0x54bfff,
 
                     transparent:
                         true,
 
                     opacity:
-                        .16,
+                        .12,
 
                     blending:
                         THREE.AdditiveBlending,
@@ -1405,17 +2017,20 @@ datosFotos.forEach(
 
 
         halo.scale.set(
-            105,
-            105,
+            100,
+            100,
             1
         );
 
 
-        grupo.add(halo);
+        grupo.add(
+            halo
+        );
 
 
         grupo.userData.foto =
             foto;
+
 
         grupo.userData.halo =
             halo;
@@ -1424,6 +2039,7 @@ datosFotos.forEach(
         grupoFotos.add(
             grupo
         );
+
 
         fotosObjetos.push(
             grupo
@@ -1435,14 +2051,14 @@ datosFotos.forEach(
 
 
 /* ========================================
-   ESTRELLAS INTERACTIVAS
+   ESTRELLAS ESPECIALES
 ======================================== */
 
 const recuerdos = [
 
     "Desde que llegaste, mi universo cambió.",
 
-    "Entre millones de personas, tuve la suerte de encontrarte.",
+    "Entre millones de estrellas, siempre te elegiría a ti.",
 
     "Mi lugar favorito siempre termina siendo contigo.",
 
@@ -1462,7 +2078,7 @@ const recuerdos = [
 
     "Cada momento contigo se convirtió en una pequeña parte de mi universo.",
 
-    "No sé qué nos espera más adelante, pero me hace ilusión descubrirlo contigo.",
+    "No sé qué nos espera más adelante, pero quiero descubrirlo contigo.",
 
     "De todas las coincidencias de la vida, conocerte fue mi favorita.",
 
@@ -1506,10 +2122,6 @@ const posicionesEstrellas = [
 const estrellasEspeciales = [];
 
 
-/* ========================================
-   CREAR ESTRELLAS
-======================================== */
-
 posicionesEstrellas.forEach(
 
     (posicion, indice) => {
@@ -1519,9 +2131,11 @@ posicionesEstrellas.forEach(
 
 
         grupo.position.set(
+
             posicion[0],
             posicion[1],
             posicion[2]
+
         );
 
 
@@ -1538,13 +2152,13 @@ posicionesEstrellas.forEach(
                         texturaHalo,
 
                     color:
-                        0x55fff5,
+                        0x65cfff,
 
                     transparent:
                         true,
 
                     opacity:
-                        .9,
+                        .95,
 
                     blending:
                         THREE.AdditiveBlending,
@@ -1558,13 +2172,15 @@ posicionesEstrellas.forEach(
 
 
         halo.scale.set(
-            42,
-            42,
+            45,
+            45,
             1
         );
 
 
-        grupo.add(halo);
+        grupo.add(
+            halo
+        );
 
 
         const nucleo =
@@ -1586,14 +2202,16 @@ posicionesEstrellas.forEach(
             );
 
 
-        grupo.add(nucleo);
+        grupo.add(
+            nucleo
+        );
 
 
         const materialCruz =
             new THREE.LineBasicMaterial({
 
                 color:
-                    0xbafff9,
+                    0xffffff,
 
                 transparent:
                     true,
@@ -1607,19 +2225,27 @@ posicionesEstrellas.forEach(
         const puntosCruz = [
 
             new THREE.Vector3(
-                -16, 0, 0
+                -16,
+                0,
+                0
             ),
 
             new THREE.Vector3(
-                16, 0, 0
+                16,
+                0,
+                0
             ),
 
             new THREE.Vector3(
-                0, -16, 0
+                0,
+                -16,
+                0
             ),
 
             new THREE.Vector3(
-                0, 16, 0
+                0,
+                16,
+                0
             )
 
         ];
@@ -1642,7 +2268,9 @@ posicionesEstrellas.forEach(
             );
 
 
-        grupo.add(cruz);
+        grupo.add(
+            cruz
+        );
 
 
         grupo.userData.halo =
@@ -1655,7 +2283,10 @@ posicionesEstrellas.forEach(
             cruz;
 
 
-        escena.add(grupo);
+        escena.add(
+            grupo
+        );
+
 
         estrellasEspeciales.push(
             grupo
@@ -1673,6 +2304,7 @@ posicionesEstrellas.forEach(
 const raycaster =
     new THREE.Raycaster();
 
+
 const mouse =
     new THREE.Vector2();
 
@@ -1680,11 +2312,14 @@ const mouse =
 function obtenerMouse(event) {
 
     mouse.x =
+
         (event.clientX /
         window.innerWidth) *
         2 - 1;
 
+
     mouse.y =
+
         -(event.clientY /
         window.innerHeight) *
         2 + 1;
@@ -1713,9 +2348,11 @@ function abrirMensaje(texto) {
     textoMensaje.innerText =
         texto;
 
+
     pantallaMensaje.classList.add(
         "visible"
     );
+
 
     controles.enabled =
         false;
@@ -1724,7 +2361,7 @@ function abrirMensaje(texto) {
 
 
 /* ========================================
-   CLIC / TOQUE
+   TOQUE
 ======================================== */
 
 renderer.domElement.addEventListener(
@@ -1735,16 +2372,23 @@ renderer.domElement.addEventListener(
 
         obtenerMouse(event);
 
+
         raycaster.setFromCamera(
+
             mouse,
+
             camara
+
         );
 
 
         const objetos =
             raycaster.intersectObjects(
+
                 estrellasEspeciales,
+
                 true
+
             );
 
 
@@ -1757,8 +2401,11 @@ renderer.domElement.addEventListener(
 
 
             while (
+
                 estrella.parent &&
+
                 !estrella.userData.texto
+
             ) {
 
                 estrella =
@@ -1772,7 +2419,9 @@ renderer.domElement.addEventListener(
             ) {
 
                 abrirMensaje(
+
                     estrella.userData.texto
+
                 );
 
             }
@@ -1785,7 +2434,7 @@ renderer.domElement.addEventListener(
 
 
 /* ========================================
-   CERRAR
+   CERRAR MENSAJE
 ======================================== */
 
 document
@@ -1800,7 +2449,10 @@ document
 
             pantallaMensaje
                 .classList
-                .remove("visible");
+                .remove(
+                    "visible"
+                );
+
 
             controles.enabled =
                 true;
@@ -1822,7 +2474,10 @@ window.addEventListener(
 
             pantallaMensaje
                 .classList
-                .remove("visible");
+                .remove(
+                    "visible"
+                );
+
 
             controles.enabled =
                 true;
@@ -1835,11 +2490,15 @@ window.addEventListener(
 
 
 /* ========================================
-   ANIMACIÓN
+   ANIMACIÓN DEL CORAZÓN
 ======================================== */
 
 const reloj =
     new THREE.Clock();
+
+
+const duracionCiclo =
+    14;
 
 
 function animar() {
@@ -1853,90 +2512,387 @@ function animar() {
         reloj.getElapsedTime();
 
 
-    /* CORAZÓN */
+    /*
+       CICLO DE 14 SEGUNDOS
 
-    const pulso =
+       0 - 2:
+       Planeta normal.
+
+       2 - 5:
+       Partículas salen del planeta.
+
+       5 - 8:
+       El corazón se forma.
+
+       8 - 11:
+       Corazón formado.
+
+       11 - 14:
+       Se dispersa.
+
+       Después vuelve a empezar.
+    */
+
+    const ciclo =
+        tiempo % duracionCiclo;
+
+
+    /* ========================================
+       PLANETA
+    ======================================== */
+
+    if (planeta) {
+
+        planeta.rotation.y =
+            tiempo * .08;
+
+    }
+
+
+    /* ========================================
+       ATMÓSFERA
+    ======================================== */
+
+    const escalaAtmosfera =
+
         1 +
+
         Math.sin(
-            tiempo * 1.8
-        ) * .035;
+            tiempo * 1.3
+        ) * .018;
 
 
-    corazon.scale.set(
-        1.5 * pulso,
-        1.5 * pulso,
-        1.5 * pulso
+    atmosfera.scale.setScalar(
+        escalaAtmosfera
     );
 
 
-    corazon.rotation.y =
-        Math.sin(
-            tiempo * .25
-        ) * .08;
+    /* ========================================
+       ANILLO
+    ======================================== */
+
+    anillo.rotation.z =
+        tiempo * .12;
 
 
-    /* HALO */
+    /* ========================================
+       GALAXIA
+    ======================================== */
 
-    const pulsoHalo =
-        1 +
-        Math.sin(
-            tiempo * 1.4
-        ) * .08;
-
-
-    haloCorazon.scale.set(
-        700 * pulsoHalo,
-        700 * pulsoHalo,
-        1
-    );
+    galaxia.rotation.y =
+        tiempo * .018;
 
 
-    haloCorazon.material.opacity =
-        .13 +
-        Math.sin(
-            tiempo * 1.5
-        ) * .05;
+    particulasGalaxia.rotation.y =
+        tiempo * .006;
 
-
-    /* FONDO */
 
     fondo.rotation.y =
         tiempo * .0015;
 
 
-    /* PEQUEÑOS CORAZONES */
+    /* ========================================
+       EFECTO DEL CORAZÓN
+    ======================================== */
 
-    corazonesPequenos.forEach(
+    let progreso = 0;
 
-        (corazonPequeno) => {
-
-            corazonPequeno.position.y +=
-                corazonPequeno.userData.velocidad;
-
-            corazonPequeno.material.opacity =
-                .35 +
-                Math.sin(
-                    tiempo * 1.5 +
-                    corazonPequeno.userData.fase
-                ) * .3;
+    let opacidad = 0;
 
 
-            if (
-                corazonPequeno.position.y >
-                350
-            ) {
+    if (
+        ciclo < 2
+    ) {
 
-                corazonPequeno.position.y =
-                    -350;
+        progreso = 0;
 
-            }
+        opacidad = 0;
 
-        }
+    }
+
+
+    else if (
+        ciclo < 5
+    ) {
+
+        progreso =
+            (ciclo - 2) / 3;
+
+        opacidad =
+            progreso;
+
+    }
+
+
+    else if (
+        ciclo < 8
+    ) {
+
+        progreso = 1;
+
+        opacidad = 1;
+
+    }
+
+
+    else if (
+        ciclo < 11
+    ) {
+
+        progreso = 1;
+
+        opacidad = 1;
+
+    }
+
+
+    else {
+
+        progreso =
+            1 -
+            ((ciclo - 11) / 3);
+
+        opacidad =
+            progreso;
+
+    }
+
+
+    /*
+       Suavizamos la aparición.
+    */
+
+    const suavizado =
+        progreso *
+        progreso *
+        (3 - 2 * progreso);
+
+
+    const posiciones =
+        corazonGeometry
+            .attributes
+            .position
+            .array;
+
+
+    for (
+
+        let i = 0;
+
+        i < cantidadCorazon;
+
+        i++
+
+    ) {
+
+        const indice =
+            i * 3;
+
+
+        /*
+           Movimiento desde el planeta
+           hacia la forma final.
+        */
+
+        posiciones[indice] =
+
+            posicionesInicio[indice] *
+            (1 - suavizado)
+
+            +
+
+            posicionesFinal[indice] *
+            suavizado;
+
+
+        posiciones[indice + 1] =
+
+            posicionesInicio[indice + 1] *
+            (1 - suavizado)
+
+            +
+
+            posicionesFinal[indice + 1] *
+            suavizado;
+
+
+        posiciones[indice + 2] =
+
+            posicionesInicio[indice + 2] *
+            (1 - suavizado)
+
+            +
+
+            posicionesFinal[indice + 2] *
+            suavizado;
+
+    }
+
+
+    corazonGeometry
+        .attributes
+        .position
+        .needsUpdate =
+        true;
+
+
+    corazonMaterial.opacity =
+        opacidad;
+
+
+    /*
+       Pequeña vibración del corazón.
+    */
+
+    if (
+        progreso > .9
+    ) {
+
+        const latido =
+            1 +
+
+            Math.sin(
+                tiempo * 2.5
+            ) * .035;
+
+
+        corazon.scale.set(
+
+            latido,
+
+            latido,
+
+            latido
+
+        );
+
+    }
+
+
+    /*
+       Halo del corazón.
+    */
+
+    haloCorazon.material.opacity =
+
+        opacidad * .22;
+
+
+    haloCorazon.scale.set(
+
+        500 +
+        opacidad * 100,
+
+        500 +
+        opacidad * 100,
+
+        1
 
     );
 
 
-    /* FOTOS */
+    /*
+       Partículas que salen
+       disparadas del planeta.
+    */
+
+    const posicionesExp =
+        explosionGeometry
+            .attributes
+            .position
+            .array;
+
+
+    let explosionOpacidad = 0;
+
+
+    if (
+        ciclo >= 2 &&
+        ciclo < 8
+    ) {
+
+        explosionOpacidad =
+
+            Math.sin(
+                ((ciclo - 2) / 6) *
+                Math.PI
+            );
+
+    }
+
+
+    for (
+
+        let i = 0;
+
+        i < cantidadExplosion;
+
+        i++
+
+    ) {
+
+        const indice =
+            i * 3;
+
+
+        posicionesExp[indice] =
+
+            posicionesExplosion[indice]
+
+            +
+
+            velocidadesExplosion[indice] *
+            Math.max(
+                0,
+                ciclo - 2
+            ) *
+            18;
+
+
+        posicionesExp[indice + 1] =
+
+            posicionesExplosion[indice + 1]
+
+            +
+
+            velocidadesExplosion[indice + 1] *
+            Math.max(
+                0,
+                ciclo - 2
+            ) *
+            18;
+
+
+        posicionesExp[indice + 2] =
+
+            posicionesExplosion[indice + 2]
+
+            +
+
+            velocidadesExplosion[indice + 2] *
+            Math.max(
+                0,
+                ciclo - 2
+            ) *
+            18;
+
+    }
+
+
+    explosionGeometry
+        .attributes
+        .position
+        .needsUpdate =
+        true;
+
+
+    explosionMaterial.opacity =
+        explosionOpacidad;
+
+
+    /* ========================================
+       FOTOS
+    ======================================== */
 
     fotosObjetos.forEach(
 
@@ -1965,16 +2921,24 @@ function animar() {
 
 
             const y =
+
                 foto.userData.altura +
-                Math.sin(angulo) *
+
+                Math.sin(
+                    angulo
+                ) *
+
                 radio *
+
                 .12;
 
 
             foto.position.set(
+
                 x,
                 y,
                 z
+
             );
 
 
@@ -1983,19 +2947,27 @@ function animar() {
             );
 
 
-            const brillo =
+            const pulso =
+
                 1 +
+
                 Math.sin(
-                    tiempo * 1.3 +
+
+                    tiempo * 1.2 +
                     indice
+
                 ) * .06;
 
 
             foto.userData.halo
                 .scale.set(
-                    105 * brillo,
-                    105 * brillo,
+
+                    100 * pulso,
+
+                    100 * pulso,
+
                     1
+
                 );
 
         }
@@ -2003,42 +2975,56 @@ function animar() {
     );
 
 
-    /* ESTRELLAS */
+    /* ========================================
+       ESTRELLAS
+    ======================================== */
 
     estrellasEspeciales.forEach(
 
         (estrella, indice) => {
 
-            const pulsoEstrella =
+            const pulso =
+
                 1 +
+
                 Math.sin(
+
                     tiempo * 2.2 +
                     indice
-                ) * .18;
+
+                ) *
+
+                .18;
 
 
             estrella.userData.halo
                 .scale.set(
-                    42 * pulsoEstrella,
-                    42 * pulsoEstrella,
+
+                    45 * pulso,
+
+                    45 * pulso,
+
                     1
+
                 );
 
 
             estrella.userData.nucleo
                 .scale.setScalar(
-                    pulsoEstrella
+                    pulso
                 );
 
 
             estrella.userData.cruz
                 .scale.setScalar(
-                    pulsoEstrella
+                    pulso
                 );
 
 
             estrella.rotation.z =
+
                 tiempo *
+
                 (.2 + indice * .01);
 
         }
@@ -2046,12 +3032,19 @@ function animar() {
     );
 
 
+    /* ========================================
+       CONTROLES
+    ======================================== */
+
     controles.update();
 
 
     renderer.render(
+
         escena,
+
         camara
+
     );
 
 }
@@ -2071,15 +3064,19 @@ window.addEventListener(
     function() {
 
         camara.aspect =
+
             window.innerWidth /
             window.innerHeight;
+
 
         camara.updateProjectionMatrix();
 
 
         renderer.setSize(
+
             window.innerWidth,
             window.innerHeight
+
         );
 
     }
